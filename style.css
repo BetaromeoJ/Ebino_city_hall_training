@@ -468,6 +468,12 @@ main { min-width: 0; padding-bottom: 80px; }
   font-size: 13px; font-weight: 400; color: var(--text-sub); margin-left: 8px;
 }
 .profile__role { font-size: 13.5px; color: var(--text-sub); margin: 0 0 10px; line-height: 1.6; }
+.profile__highlight {
+  background: var(--orange-pale); color: #8a4409;
+  border-radius: 10px; padding: 9px 14px; margin: 0 0 12px;
+  font-size: 13.5px; font-weight: 700; line-height: 1.5;
+}
+.profile__highlight span { font-weight: 400; font-size: 12.5px; color: #a1652f; }
 .profile__txt { font-size: 14.5px; color: var(--text); margin: 0; line-height: 1.75; }
 
 .media--avatar {
@@ -486,10 +492,14 @@ main { min-width: 0; padding-bottom: 80px; }
 /* 著作紹介 */
 .bookCard {
   display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px;
+  align-items: start;
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
   padding: 28px;
 }
 .bookCard__cover { width: 220px; }
+/* 書影は表紙全体が見えるよう、読み込み後は画像本来の縦横比で表示します */
+.bookCard__cover.is-loaded { aspect-ratio: auto; }
+.bookCard__cover.is-loaded img { height: auto; object-fit: contain; }
 .bookCard__ttl { font-size: 22px; color: var(--navy); margin-bottom: 6px; }
 .bookCard__pub {
   display: inline-block; font-size: 13px; font-weight: 700;
