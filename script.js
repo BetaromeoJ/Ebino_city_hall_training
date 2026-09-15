@@ -162,73 +162,6 @@ var LINK_LABELS = {
   }
 
   /* ------------------------------------------------------------------
-     5. アジェンダの「いまここ」表示
-        時刻では管理しません。講師の進行に合わせて「いまここを進める」を
-        押すと、印が1つ先へ進みます。
-     ------------------------------------------------------------------ */
-  var agendaItems = [];
-  var currentIndex = -1;   // -1 のときは印なし
-  var statusEl = null;
-
-  function initAgenda() {
-    agendaItems = [].slice.call(document.querySelectorAll(".agenda li"));
-    statusEl = document.getElementById("agendaStatus");
-    if (!agendaItems.length) { return; }
-
-    var prev = document.getElementById("agendaPrev");
-    var next = document.getElementById("agendaNext");
-    var reset = document.getElementById("agendaAuto");
-
-    if (next) {
-      next.addEventListener("click", function () {
-        currentIndex = Math.min(agendaItems.length - 1, currentIndex + 1);
-        renderAgenda();
-      });
-    }
-    if (prev) {
-      prev.addEventListener("click", function () {
-        currentIndex = Math.max(-1, currentIndex - 1);
-        renderAgenda();
-      });
-    }
-    if (reset) {
-      reset.addEventListener("click", function () {
-        currentIndex = -1;
-        renderAgenda();
-      });
-    }
-
-    renderAgenda();
-  }
-
-  function renderAgenda() {
-    for (var i = 0; i < agendaItems.length; i++) {
-      var li = agendaItems[i];
-      li.classList.remove("is-now", "is-done");
-      var mark = li.querySelector(".now");
-      if (mark) { mark.parentNode.removeChild(mark); }
-
-      if (currentIndex >= 0 && i < currentIndex) { li.classList.add("is-done"); }
-      if (i === currentIndex) {
-        li.classList.add("is-now");
-        var ttl = li.querySelector(".agenda__ttl");
-        if (ttl) {
-          var span = document.createElement("span");
-          span.className = "now";
-          span.textContent = "▶ いまここ";
-          ttl.appendChild(span);
-        }
-      }
-    }
-
-    if (statusEl) {
-      statusEl.textContent = (currentIndex < 0)
-        ? "進行に合わせて「いまここを進める」を押すと、今の場所に印がつきます。"
-        : "いま " + (currentIndex + 1) + " / " + agendaItems.length + " です。";
-    }
-  }
-
-  /* ------------------------------------------------------------------
      5.5 文字サイズの切替（「文字を大きく」ボタン）
          html に data-font="lg" を付け外しするだけで、ページ全体の文字が
          約1.15倍になります。選んだ状態はこのPCのブラウザに記憶されます。
@@ -304,7 +237,6 @@ var LINK_LABELS = {
     buildLinkTable();
     loadImages();
     initScrollSpy();
-    initAgenda();
     initFontToggle();
     initSheet();
   }
