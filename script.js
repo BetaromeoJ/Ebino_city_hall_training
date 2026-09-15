@@ -14,7 +14,7 @@
      自動で文字として表示されます（手入力・印刷用の保険）。
    ========================================================================== */
 var CONFIG = {
-  canvaClass : "",                          // ① 研修用Canvaクラス 招待リンク
+  canvaClass : "https://www.canva.com/brand/join?token=M0FB040stfUoReg4tEy1cw&brandingVariant=edu&invitationDestinationType=group",  // ① 研修用Canvaクラス 招待リンク
   canvaHome  : "https://www.canva.com/",    // ② Canvaを開く
   work1      : "",                          // ③ ワーク1 演習用デザイン
   materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
