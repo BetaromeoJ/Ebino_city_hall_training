@@ -19,7 +19,7 @@ var CONFIG = {
   work1      : "",                          // ③ ワーク1 演習用デザイン
   materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
   slides     : "",                          // ⑤ 今日の資料
-  shareForm  : "",                          // ⑥ 成果共有フォーム（今回は未使用。使う場合のみURLを入れる）
+  shareForm  : "https://docs.google.com/forms/d/e/1FAIpQLSc-Sp5wO40t4THAf9vhv06zhjLhDFco_iURTMFVOwygsyqP-Q/viewform",  // ⑥ 成果共有フォーム（PNG作品の提出先）
   survey     : "https://docs.google.com/forms/d/e/1FAIpQLSchfKUDeaERQi0vHxrsC7Pmlmemo-pCD_i-w52P7vCPs7us4A/viewform",  // ⑦ 研修アンケート
   book       : "https://gihyo.jp/book/2026/978-4-297-15660-2"  // ⑧ 講師の著作（技術評論社）
 };
