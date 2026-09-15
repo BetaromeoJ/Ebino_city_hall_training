@@ -455,6 +455,18 @@ main { min-width: 0; padding-bottom: 80px; }
 .step--calm { background: var(--cyan-pale); border-color: var(--cyan); }
 .step--calm .step__no { background: var(--cyan); }
 
+/* ワーク2：STEP見出し（既存の色・角丸・文字サイズを再利用） */
+.stepHead {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 12px;
+  margin: 34px 0 10px;
+}
+.stepHead__no {
+  background: var(--navy); color: #fff;
+  font-size: 0.875rem; font-weight: 700; letter-spacing: .08em;
+  padding: 5px 14px; border-radius: 999px;
+}
+.stepHead__ttl { font-size: 1.375rem; color: var(--navy); }
+
 /* ワーク1とワーク2の役割の違い */
 .work2Compare {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
