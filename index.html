@@ -212,77 +212,77 @@ try {
       <span class="sec__label">AGENDA</span>
       <h2 class="sec__title">3時間の進行</h2>
       <p class="sec__lead">
+        今日はこの順番で進みます。時刻は決めていませんので、ご自分のペースで大丈夫です。
         <span class="agenda__mode mode--watch">見る</span> は講師のデモを見る時間、
         <span class="agenda__mode mode--touch">触る</span> はご自身で操作する時間です。
-        全部を覚える必要はありません。
       </p>
 
       <div class="agendaCtrl">
-        <button type="button" id="agendaPrev">◀ 前へ</button>
-        <button type="button" id="agendaNext">次へ ▶</button>
-        <button type="button" id="agendaAuto">自動に戻す</button>
+        <button type="button" id="agendaNext">▶ いまここを進める</button>
+        <button type="button" id="agendaPrev">◀ ひとつ戻す</button>
+        <button type="button" id="agendaAuto">印を消す</button>
         <span id="agendaStatus"></span>
       </div>
 
       <ol class="agenda">
-        <li data-start="810" data-end="820">
-          <span class="agenda__time">13:30 – 13:40</span>
+        <li>
+          <span class="agenda__no">01</span>
           <span class="agenda__ttl">オープニング</span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="820" data-end="835">
-          <span class="agenda__time">13:40 – 13:55</span>
+        <li>
+          <span class="agenda__no">02</span>
           <span class="agenda__ttl">Canvaは今ここまでできる</span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="835" data-end="850">
-          <span class="agenda__time">13:55 – 14:10</span>
+        <li>
+          <span class="agenda__no">03</span>
           <span class="agenda__ttl">Canvaの基本画面</span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="850" data-end="875">
-          <span class="agenda__time">14:10 – 14:35</span>
-          <span class="agenda__ttl"><a href="#work1">ワーク1　まず1枚作ってみる</a></span>
+        <li>
+          <span class="agenda__no">04</span>
+          <span class="agenda__ttl"><a href="#work1">ワーク1　まず1枚、触ってみる</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
-        <li data-start="875" data-end="890">
-          <span class="agenda__time">14:35 – 14:50</span>
+        <li>
+          <span class="agenda__no">05</span>
           <span class="agenda__ttl"><a href="#tips">伝わるデザイン 超入門</a></span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="890" data-end="900">
-          <span class="agenda__time">14:50 – 15:00</span>
+        <li class="is-break">
+          <span class="agenda__no">—</span>
           <span class="agenda__ttl">休憩</span>
           <span class="agenda__mode mode--break">休憩</span>
         </li>
-        <li data-start="900" data-end="920">
-          <span class="agenda__time">15:00 – 15:20</span>
+        <li>
+          <span class="agenda__no">06</span>
           <span class="agenda__ttl"><a href="#whatsnew">2026 Canva新機能ショーケース</a></span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="920" data-end="935">
-          <span class="agenda__time">15:20 – 15:35</span>
+        <li>
+          <span class="agenda__no">07</span>
           <span class="agenda__ttl"><a href="#photo">写真1枚からできること</a></span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="935" data-end="945">
-          <span class="agenda__time">15:35 – 15:45</span>
+        <li>
+          <span class="agenda__no">08</span>
           <span class="agenda__ttl"><a href="#canvatips">明日使えるCanva小技</a></span>
           <span class="agenda__mode mode--watch">見る</span>
         </li>
-        <li data-start="945" data-end="975">
-          <span class="agenda__time">15:45 – 16:15</span>
+        <li>
+          <span class="agenda__no">09</span>
           <span class="agenda__ttl"><a href="#work2">ワーク2　あなたの仕事の1枚</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
-        <li data-start="975" data-end="985">
-          <span class="agenda__time">16:15 – 16:25</span>
+        <li>
+          <span class="agenda__no">10</span>
           <span class="agenda__ttl"><a href="#share">作品を共有する</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
-        <li data-start="985" data-end="990">
-          <span class="agenda__time">16:25 – 16:30</span>
-          <span class="agenda__ttl">クロージング／<a href="#feedback">アンケート</a></span>
+        <li>
+          <span class="agenda__no">11</span>
+          <span class="agenda__ttl"><a href="#feedback">クロージング／アンケート</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
       </ol>
@@ -396,27 +396,29 @@ try {
          WORK 1
          ======================================================== -->
     <section class="sec sec--alt" id="work1">
-      <span class="sec__label">WORK 1　14:10 – 14:35</span>
-      <h2 class="sec__title">まず1枚、作ってみる</h2>
+      <span class="sec__label">WORK 1</span>
+      <h2 class="sec__title">まず1枚、触ってみよう</h2>
       <p class="sec__lead">
-        白紙からは作りません。テンプレートを選んで、少しずつ書き換えていきます。
-        全員で同じチラシを作りますので、手が止まったらこのカードに戻ってきてください。
+        用意された「Ebino Walking」のデザインを使います。完成させなくても大丈夫です。
+        文字やイラストを触りながら、Canvaの基本操作を試してみましょう。
       </p>
 
       <div style="margin-bottom:24px;">
         <span class="sampleBadge">研修サンプル（実在の行事ではありません）</span>
         <div class="sampleBox">
-          <h3 class="card__ttl">今日つくるチラシ：秋のウォーキングイベント 参加者募集</h3>
-          <dl>
-            <dt>行事名</dt><dd>秋のウォーキング大会</dd>
-            <dt>日時</dt><dd>2026年11月8日（日）9:00 集合</dd>
-            <dt>集合場所</dt><dd>市民運動公園 正面入口</dd>
-            <dt>参加費</dt><dd>無料</dd>
-            <dt>持ち物</dt><dd>飲みもの・歩きやすい靴・帽子</dd>
-            <dt>申込</dt><dd>QRコードから（QRの中身は何でも構いません）</dd>
-          </dl>
+          <h3 class="card__ttl">演習用デザイン「Ebino Walking」</h3>
+          <p class="card__txt" style="margin-bottom:10px;">
+            秋のウォーキングイベントを想定した、縦型のチラシです。次のものが入っています。
+          </p>
+          <ul class="sampleList">
+            <li>上部の秋のガーランド</li>
+            <li>「Ebino Walking」のタイトル</li>
+            <li>イベント名・日時・場所</li>
+            <li>ウォーキングをする人物のイラスト</li>
+            <li>秋の葉の装飾</li>
+          </ul>
           <p class="note note--warn">
-            この内容は研修用に作成した架空の行事です。実際の市の行事ではありません。
+            これは研修用に用意した架空の行事です。実際の市の行事ではありません。
           </p>
         </div>
       </div>
@@ -426,25 +428,15 @@ try {
         演習用デザインを開く
         <span class="btn__state">準備中</span>
       </a>
-      <p class="helpNote helpNote--gap">開かない場合は講師にお知らせください。</p>
+      <p class="helpNote helpNote--gap">
+        今日の演習用デザインが開きます（上の「Canvaを開く」はCanvaのホーム画面です）。
+        開かない場合は講師にお知らせください。
+      </p>
 
       <div class="grid grid--3">
 
         <div class="card step">
-          <span class="step__no">STEP 1</span>
-          <h3 class="step__ttl">テンプレートを選ぶ</h3>
-          <ol>
-            <li>画面の左にある「テンプレート」をクリック</li>
-            <li>検索まどに「イベント チラシ」と入力</li>
-            <li>気に入った1枚をクリック</li>
-          </ol>
-          <p class="card__txt" style="margin-top:10px;">
-            迷ったら、写真が1枚入っているシンプルなものを選んでください。
-          </p>
-        </div>
-
-        <div class="card step">
-          <span class="step__no">STEP 2</span>
+          <span class="step__no">1</span>
           <h3 class="step__ttl">文字を変える</h3>
           <ol>
             <li>変えたい文字を<strong>ダブルクリック</strong></li>
@@ -452,66 +444,75 @@ try {
             <li>そのまま打ち直す</li>
           </ol>
           <p class="card__txt" style="margin-top:10px;">
-            タイトル・日時・集合場所を、上のサンプルの内容に書き換えます。
+            イベント名・日時・場所など、変えたいところだけで大丈夫です。
           </p>
         </div>
 
         <div class="card step">
-          <span class="step__no">STEP 3</span>
-          <h3 class="step__ttl">写真を変える</h3>
+          <span class="step__no">2</span>
+          <h3 class="step__ttl">文字の大きさ・色を変える</h3>
           <ol>
-            <li>左の「素材」をクリック</li>
-            <li>検索まどに「秋 紅葉」などと入力</li>
-            <li>写真を<strong>チラシの写真の上までドラッグ</strong>して重ねる</li>
+            <li>文字をクリックして選ぶ</li>
+            <li>画面の上に出てくる欄で、サイズ・フォント・色を変える</li>
           </ol>
           <p class="card__txt" style="margin-top:10px;">
-            重ねると、元の写真と自動で入れ替わります。
+            全部変える必要はありません。1か所だけでも印象が変わります。
           </p>
         </div>
 
         <div class="card step">
-          <span class="step__no">STEP 4</span>
-          <h3 class="step__ttl">色を変える</h3>
+          <span class="step__no">3</span>
+          <h3 class="step__ttl">イラストを動かす・変える</h3>
           <ol>
-            <li>色を変えたい部分をクリック</li>
-            <li>画面の上に出てくる<strong>色の四角</strong>をクリック</li>
-            <li>好きな色を選ぶ</li>
+            <li>人物のイラストをクリック</li>
+            <li>角をドラッグして大きさを変える</li>
+            <li>そのままドラッグして位置を変える</li>
           </ol>
           <p class="card__txt" style="margin-top:10px;">
-            色は増やしすぎないのがコツです。2〜3色で十分です。
+            左の「素材」から、別のイラストに差し替えることもできます。
           </p>
         </div>
 
         <div class="card step">
-          <span class="step__no">STEP 5</span>
-          <h3 class="step__ttl">QRコードを入れる</h3>
+          <span class="step__no">4</span>
+          <h3 class="step__ttl">情報を追加する</h3>
+          <ol>
+            <li>左の「テキスト」をクリック</li>
+            <li>空いているところに文字を足す</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            たとえば、参加費・持ち物・申込方法・問い合わせ先など。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">5</span>
+          <h3 class="step__ttl">余裕があればQRコードなども</h3>
           <ol>
             <li>左の「アプリ」をクリック</li>
             <li>「QRコード」を選ぶ</li>
             <li>URLを貼り付けて「コードを生成」</li>
-            <li>できたQRをチラシの好きな場所へ移動</li>
-          </ol>
-        </div>
-
-        <div class="card step">
-          <span class="step__no">STEP 6</span>
-          <h3 class="step__ttl">保存する</h3>
-          <ol>
-            <li>画面右上の「共有」をクリック</li>
-            <li>「ダウンロード」を選ぶ</li>
-            <li>印刷するなら <strong>PDF（印刷）</strong>、
-                メールやSNSなら <strong>PNG</strong></li>
           </ol>
           <p class="card__txt" style="margin-top:10px;">
-            ここまでできたら完成です。お疲れさまでした。
+            必須ではありません。「こんなこともできる」という発展です。
+          </p>
+        </div>
+
+        <div class="card step step--calm">
+          <span class="step__no">ひとこと</span>
+          <h3 class="step__ttl">全部やらなくて大丈夫です</h3>
+          <p class="card__txt">
+            できるところまでで大丈夫です。触ってみて「あ、変わった」と分かれば、
+            今日のワーク1はうまくいっています。<br>
+            分からなくなったら、遠慮なく講師にお知らせください。
           </p>
         </div>
 
       </div>
 
       <div style="margin-top:28px;">
-        <p class="figLabel">完成イメージ</p>
-        <div class="media" data-img="images/work1-sample.jpg" data-alt="ワーク1の完成見本"
+        <p class="figLabel">演習用デザインのイメージ</p>
+        <div class="media" data-img="images/work1-sample.jpg" data-alt="演習用デザイン Ebino Walking"
              style="--ar:3/4;max-width:300px;">
           <span class="media__label">画像準備中</span>
           <span class="media__path">images/work1-sample.jpg</span>
@@ -523,7 +524,7 @@ try {
          DESIGN TIPS
          ======================================================== -->
     <section class="sec" id="tips">
-      <span class="sec__label">DESIGN TIPS　14:35 – 14:50</span>
+      <span class="sec__label">DESIGN TIPS</span>
       <h2 class="sec__title">伝わるデザイン、5つのポイント</h2>
       <p class="sec__lead">
         きれいにすることがデザインではありません。<strong>伝わりやすくすることがデザイン</strong>です。
@@ -568,6 +569,11 @@ try {
         </div>
       </div>
 
+      <p class="note">
+        さきほど触った「Ebino Walking」で、できそうなものを1つだけ試してみましょう。
+        全部を直す必要はありません。
+      </p>
+
       <div class="grid grid--2" style="margin-top:24px;">
         <div>
           <p class="figLabel">Before</p>
@@ -590,7 +596,7 @@ try {
          WHAT'S NEW
          ======================================================== -->
     <section class="sec sec--alt" id="whatsnew">
-      <span class="sec__label">WHAT'S NEW　15:00 – 15:20</span>
+      <span class="sec__label">WHAT'S NEW</span>
       <h2 class="sec__title">2026年の Canva アップデート</h2>
       <p class="sec__lead">
         <span class="badge badge--try">体験</span> は今日実際に触ってみるもの、
@@ -663,7 +669,7 @@ try {
          写真1枚から
          ======================================================== -->
     <section class="sec" id="photo">
-      <span class="sec__label">PHOTO　15:20 – 15:35</span>
+      <span class="sec__label">PHOTO</span>
       <h2 class="sec__title">写真1枚から、できること</h2>
       <p class="sec__lead">
         特別な写真は必要ありません。業務で撮った1枚が、そのまま広報物になります。
@@ -712,7 +718,7 @@ try {
          CANVA TIPS
          ======================================================== -->
     <section class="sec" id="canvatips">
-      <span class="sec__label">CANVA TIPS　15:35 – 15:45</span>
+      <span class="sec__label">CANVA TIPS</span>
       <h2 class="sec__title">明日から使える、小さな技</h2>
       <p class="sec__lead">全部覚えなくて構いません。「こんなのがあったな」で十分です。</p>
 
@@ -756,8 +762,16 @@ try {
          WORK 2
          ======================================================== -->
     <section class="sec sec--alt" id="work2">
-      <span class="sec__label">WORK 2　15:45 – 16:15</span>
+      <span class="sec__label">WORK 2</span>
       <h2 class="sec__title">あなたの仕事の1枚を作ろう</h2>
+      <p class="sec__lead">
+        ワーク1は、用意された「Ebino Walking」を触ってCanvaに慣れる時間でした。
+        ここからは、<strong>ご自身の仕事で使う1枚</strong>をつくります。
+      </p>
+      <div class="work2Compare">
+        <div><span class="work2Compare__tag">ワーク1</span>用意された1枚を触る</div>
+        <div><span class="work2Compare__tag work2Compare__tag--now">ワーク2</span>自分の仕事の1枚をつくる</div>
+      </div>
       <p class="sec__lead">
         テンプレートを使って構いません。完成しなくても構いません。<br>
         大切なのは、<strong>「誰に」「何を伝え」「何をしてほしいか」</strong>を考えながら作ることです。
@@ -814,7 +828,7 @@ try {
          SHARE
          ======================================================== -->
     <section class="sec" id="share">
-      <span class="sec__label">SHARE　16:15 – 16:25</span>
+      <span class="sec__label">SHARE</span>
       <h2 class="sec__title">作品を共有する</h2>
       <p class="sec__lead">
         画面を講師のPCに映します。共有してくださる方は<strong>挙手</strong>でお知らせください。
@@ -858,7 +872,7 @@ try {
          FEEDBACK
          ======================================================== -->
     <section class="sec feedback" id="feedback">
-      <span class="sec__label">FEEDBACK　16:25 – 16:30</span>
+      <span class="sec__label">FEEDBACK</span>
       <h2 class="sec__title">研修アンケート</h2>
       <p class="sec__lead" style="margin-left:auto;margin-right:auto;">
         最後に、アンケートへのご協力をお願いします。
@@ -908,6 +922,13 @@ try {
           <p class="faq__a">
             その要素がロックされているか、別の要素の下に隠れている可能性があります。
             講師にお知らせください。
+          </p>
+        </div>
+        <div class="card">
+          <p class="faq__q">演習用デザインを間違えてしまった</p>
+          <p class="faq__a">
+            大丈夫です。元の演習用デザインから、もう一度始められます。
+            分からない場合は講師にお知らせください。
           </p>
         </div>
         <div class="card">

@@ -20,7 +20,7 @@ var CONFIG = {
   materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
   slides     : "",                          // ⑤ 今日の資料
   shareForm  : "",                          // ⑥ 成果共有フォーム（今回は未使用。使う場合のみURLを入れる）
-  survey     : "",                          // ⑦ 研修アンケート
+  survey     : "https://docs.google.com/forms/d/e/1FAIpQLSchfKUDeaERQi0vHxrsC7Pmlmemo-pCD_i-w52P7vCPs7us4A/viewform",  // ⑦ 研修アンケート
   book       : "https://gihyo.jp/book/2026/978-4-297-15660-2"  // ⑧ 講師の著作（技術評論社）
 };
 
@@ -35,9 +35,6 @@ var LINK_LABELS = {
   survey     : "研修アンケート",
   book       : "講師の著作（出版社サイト）"
 };
-
-/* 研修日（この日だけ、アジェンダの「いまここ」が自動表示されます） */
-var TRAINING_DATE = "2026-09-18";
 
 /* ==========================================================================
    これより下は、通常は編集不要です。
@@ -166,11 +163,11 @@ var TRAINING_DATE = "2026-09-18";
 
   /* ------------------------------------------------------------------
      5. アジェンダの「いまここ」表示
-        - 研修日は時刻から自動判定（1分ごとに更新）
-        - 研修が前後したときは「前へ／次へ」で手動切替
+        時刻では管理しません。講師の進行に合わせて「いまここを進める」を
+        押すと、印が1つ先へ進みます。
      ------------------------------------------------------------------ */
   var agendaItems = [];
-  var manualIndex = null;   // 手動で選んだ位置（nullなら自動）
+  var currentIndex = -1;   // -1 のときは印なし
   var statusEl = null;
 
   function initAgenda() {
@@ -180,69 +177,39 @@ var TRAINING_DATE = "2026-09-18";
 
     var prev = document.getElementById("agendaPrev");
     var next = document.getElementById("agendaNext");
-    var auto = document.getElementById("agendaAuto");
+    var reset = document.getElementById("agendaAuto");
 
-    if (prev) {
-      prev.addEventListener("click", function () {
-        var cur = currentIndex();
-        manualIndex = Math.max(0, (cur < 0 ? 0 : cur) - 1);
-        renderAgenda();
-      });
-    }
     if (next) {
       next.addEventListener("click", function () {
-        var cur = currentIndex();
-        manualIndex = Math.min(agendaItems.length - 1, (cur < 0 ? -1 : cur) + 1);
+        currentIndex = Math.min(agendaItems.length - 1, currentIndex + 1);
         renderAgenda();
       });
     }
-    if (auto) {
-      auto.addEventListener("click", function () {
-        manualIndex = null;
+    if (prev) {
+      prev.addEventListener("click", function () {
+        currentIndex = Math.max(-1, currentIndex - 1);
+        renderAgenda();
+      });
+    }
+    if (reset) {
+      reset.addEventListener("click", function () {
+        currentIndex = -1;
         renderAgenda();
       });
     }
 
     renderAgenda();
-    window.setInterval(function () {
-      if (manualIndex === null) { renderAgenda(); }
-    }, 60000);
-  }
-
-  function todayKey() {
-    var d = new Date();
-    var m = d.getMonth() + 1;
-    var day = d.getDate();
-    return d.getFullYear() + "-" + (m < 10 ? "0" + m : m) + "-" + (day < 10 ? "0" + day : day);
-  }
-
-  function autoIndex() {
-    if (todayKey() !== TRAINING_DATE) { return -1; }
-    var now = new Date();
-    var minutes = now.getHours() * 60 + now.getMinutes();
-    for (var i = 0; i < agendaItems.length; i++) {
-      var s = parseInt(agendaItems[i].getAttribute("data-start"), 10);
-      var e = parseInt(agendaItems[i].getAttribute("data-end"), 10);
-      if (minutes >= s && minutes < e) { return i; }
-    }
-    return -1;
-  }
-
-  function currentIndex() {
-    return manualIndex !== null ? manualIndex : autoIndex();
   }
 
   function renderAgenda() {
-    var cur = currentIndex();
-
     for (var i = 0; i < agendaItems.length; i++) {
       var li = agendaItems[i];
       li.classList.remove("is-now", "is-done");
       var mark = li.querySelector(".now");
       if (mark) { mark.parentNode.removeChild(mark); }
 
-      if (cur >= 0 && i < cur) { li.classList.add("is-done"); }
-      if (cur >= 0 && i === cur) {
+      if (currentIndex >= 0 && i < currentIndex) { li.classList.add("is-done"); }
+      if (i === currentIndex) {
         li.classList.add("is-now");
         var ttl = li.querySelector(".agenda__ttl");
         if (ttl) {
@@ -255,13 +222,9 @@ var TRAINING_DATE = "2026-09-18";
     }
 
     if (statusEl) {
-      if (cur < 0) {
-        statusEl.textContent = "研修当日（2026年9月18日 13:30〜）は、現在地が自動で表示されます。";
-      } else if (manualIndex !== null) {
-        statusEl.textContent = "手動で表示中です。";
-      } else {
-        statusEl.textContent = "現在時刻から自動表示中です。";
-      }
+      statusEl.textContent = (currentIndex < 0)
+        ? "進行に合わせて「いまここを進める」を押すと、今の場所に印がつきます。"
+        : "いま " + (currentIndex + 1) + " / " + agendaItems.length + " です。";
     }
   }
 
