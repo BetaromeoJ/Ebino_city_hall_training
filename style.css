@@ -476,6 +476,11 @@ main { min-width: 0; padding-bottom: 80px; }
 .profile__highlight span { font-weight: 400; font-size: 12.5px; color: #a1652f; }
 .profile__txt { font-size: 14.5px; color: var(--text); margin: 0; line-height: 1.75; }
 
+/* ロゴ画像：切り取らず全体を表示します */
+.media--logo { background: #fff; border-style: solid; border-color: var(--line); }
+.media--logo.is-loaded { border: 0; }
+.media--logo.is-loaded img { height: auto; object-fit: contain; }
+
 .media--avatar {
   flex: none; width: 104px; aspect-ratio: 1 / 1; border-radius: 50%;
   font-size: 13px; padding: 0;
@@ -624,8 +629,7 @@ main { min-width: 0; padding-bottom: 80px; }
 /* 画面の縦が短いPC（1366×768 など）では、
    第1画面に「START HERE」の4枚を必ず収めるため、Heroをさらに圧縮します。 */
 @media (min-width: 901px) and (max-height: 880px) {
-  .hero { grid-template-columns: minmax(0, 1fr); padding: 14px 0 6px; }
-  .hero > .media { display: none; }
+  .hero { grid-template-columns: minmax(0, 1fr) 190px; padding: 14px 0 6px; gap: 24px; }
   .hero__title { font-size: 27px; }
   .hero__title span { font-size: 17px; }
   .hero__meta { margin: 8px 0 8px; }
