@@ -1,0 +1,648 @@
+@charset "UTF-8";
+/* ==========================================================================
+   えびの市役所 広報スキルアップ「Canva」ワークショップセミナー 第1回 基礎編
+   研修ポータル style.css
+   - 外部フォント・外部ライブラリは使用しません（市役所業務PCのフィルタ対策）
+   - 配色A：ネイビー × シアン
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color */
+  --navy:        #14315c;
+  --navy-dark:   #0e2445;
+  --navy-soft:   #2a4a78;
+  --cyan:        #0f7f8c;
+  --cyan-dark:   #0b616b;
+  --cyan-light:  #19b2c4;
+  --cyan-pale:   #e6f6f8;
+  --orange:      #e8833a;
+  --orange-pale: #fdf1e6;
+
+  --bg:          #ffffff;
+  --bg-alt:      #f4f7fa;
+  --text:        #1a1d21;
+  --text-sub:    #5b6572;
+  --line:        #dde3ea;
+  --line-strong: #c3ccd8;
+  --disabled-bg: #eceff3;
+  --disabled-tx: #8a929c;
+
+  /* Layout */
+  --topbar-h:    64px;
+  --mobilebar-h: 68px;
+  --side-w:      236px;
+  --content-max: 1120px;
+  --radius:      12px;
+  --radius-lg:   16px;
+
+  /* Type */
+  --font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+          "BIZ UDPGothic", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--topbar-h) + 16px); }
+
+body {
+  margin: 0;
+  padding-top: var(--topbar-h);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--cyan-dark); }
+
+h1, h2, h3, h4 { line-height: 1.4; margin: 0; font-weight: 700; }
+
+p { margin: 0 0 1em; }
+
+ul, ol { margin: 0; padding-left: 1.3em; }
+
+/* キーボード操作時のフォーカスを消さない（アクセシビリティ） */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy); color: #fff; padding: 12px 20px; z-index: 200;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Topbar（常時表示・PC/スマホ共通）
+   -------------------------------------------------------------------------- */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--topbar-h);
+  background: var(--navy);
+  color: #fff;
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 20px;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+
+.topbar__title {
+  font-size: 15px; font-weight: 700; line-height: 1.3;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.topbar__title small {
+  display: block; font-size: 12px; font-weight: 400; color: #b9c7dc;
+}
+
+.topbar__actions { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+.topbar .btn { min-height: 42px; padding: 0 16px; font-size: 14px; }
+
+/* スマホ用 目次ボタン */
+.navToggle {
+  display: none;
+  margin-left: auto;
+  min-height: 44px; padding: 0 14px;
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,.55);
+  border-radius: 10px; font-size: 15px; font-weight: 700;
+  font-family: inherit; cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout
+   -------------------------------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: var(--side-w) minmax(0, 1fr);
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--topbar-h) + 20px);
+  align-self: start;
+  max-height: calc(100vh - var(--topbar-h) - 40px);
+  overflow-y: auto;
+  padding: 20px 0 32px;
+}
+
+.sidebar__head {
+  font-size: 12px; letter-spacing: .12em; color: var(--text-sub);
+  font-weight: 700; margin-bottom: 10px; padding-left: 12px;
+}
+
+.sidebar__list { list-style: none; margin: 0; padding: 0; }
+
+.sidebar__list a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  font-size: 14.5px; color: var(--text-sub); text-decoration: none;
+  border-radius: 8px; border-left: 3px solid transparent;
+}
+.sidebar__list a::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--line-strong); flex: none;
+}
+.sidebar__list a:hover { background: var(--bg-alt); color: var(--navy); }
+.sidebar__list a[aria-current="true"] {
+  background: var(--cyan-pale); color: var(--navy); font-weight: 700;
+  border-left-color: var(--cyan);
+}
+.sidebar__list a[aria-current="true"]::before { background: var(--cyan); }
+
+main { min-width: 0; padding-bottom: 80px; }
+
+/* --------------------------------------------------------------------------
+   5. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 56px; padding: 0 24px;
+  font-size: 17px; font-weight: 700; font-family: inherit;
+  text-decoration: none; text-align: center;
+  border-radius: var(--radius); border: 2px solid transparent;
+  cursor: pointer; background: none;
+}
+
+.btn--primary { background: var(--cyan); color: #fff; }
+.btn--primary:hover { background: var(--cyan-dark); }
+
+.btn--navy { background: #fff; color: var(--navy); }
+.btn--navy:hover { background: #e9eef5; }
+
+.btn--outline {
+  background: #fff; color: var(--navy);
+  border-color: var(--line-strong);
+}
+.btn--outline:hover { border-color: var(--cyan); background: var(--cyan-pale); }
+
+.btn--lg { min-height: 68px; font-size: 19px; width: 100%; }
+
+.btn__state {
+  font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  background: rgba(0,0,0,.14); color: inherit;
+}
+
+/* URL未設定のとき（CONFIGが空欄のとき）の見た目 */
+.btn.is-pending,
+.btn.is-pending:hover {
+  background: var(--disabled-bg) !important;
+  color: var(--disabled-tx) !important;
+  border-color: var(--line) !important;
+  cursor: not-allowed;
+}
+.btn.is-pending .btn__state { background: #fff; color: var(--disabled-tx); }
+.btn:not(.is-pending) .btn__state { display: none; }
+
+/* --------------------------------------------------------------------------
+   6. Section 共通
+   -------------------------------------------------------------------------- */
+.sec { padding: 56px 0; border-top: 1px solid var(--line); }
+.sec:first-of-type { border-top: 0; }
+.sec--alt {
+  background: var(--bg-alt);
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+  border-top: 0;
+  margin: 56px 0;
+}
+
+.sec__label {
+  display: inline-block;
+  font-size: 12px; font-weight: 700; letter-spacing: .14em;
+  color: var(--cyan-dark); background: var(--cyan-pale);
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+}
+.sec__title { font-size: 28px; color: var(--navy); margin-bottom: 10px; }
+.sec__lead { color: var(--text-sub); max-width: 46em; margin-bottom: 28px; }
+
+.note {
+  font-size: 14px; color: var(--text-sub);
+  background: var(--bg-alt); border-left: 4px solid var(--line-strong);
+  padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 0;
+}
+.note--warn { background: var(--orange-pale); border-left-color: var(--orange); }
+
+/* --------------------------------------------------------------------------
+   7. Hero + TODAY
+   -------------------------------------------------------------------------- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: 32px; align-items: center;
+  padding: 18px 0 10px;
+}
+.hero__client { font-size: 15px; font-weight: 700; color: var(--cyan-dark); margin-bottom: 4px; }
+.hero__title { font-size: 31px; color: var(--navy); letter-spacing: .01em; }
+.hero__title span { display: block; font-size: 18px; color: var(--navy-soft); margin-top: 4px; }
+.hero__meta {
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+  margin: 12px 0 12px; font-size: 14.5px; color: var(--text-sub);
+}
+.hero__meta b { color: var(--navy); font-size: 16px; }
+.hero__copy {
+  font-size: 18px; line-height: 1.65; color: var(--text); font-weight: 700;
+  margin: 0;
+}
+.hero__reassure {
+  display: inline-block; background: var(--orange-pale); color: #a14f0c;
+  font-weight: 700; font-size: 14.5px; padding: 6px 14px; border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+/* 今日やること：横3列（第1画面にSTART HEREを収めるため） */
+.today {
+  list-style: none; padding: 0; margin: 14px 0 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;
+}
+.today li {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px;
+}
+.today .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-size: 12.5px; font-weight: 700; margin-bottom: 6px;
+}
+.today .txt { display: block; font-weight: 700; font-size: 15.5px; line-height: 1.5; }
+.today .sub { display: block; font-size: 12.5px; font-weight: 400; color: var(--text-sub); line-height: 1.45; }
+
+/* --------------------------------------------------------------------------
+   8. 画像プレースホルダー
+   -------------------------------------------------------------------------- */
+.media {
+  background: var(--bg-alt);
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--radius);
+  aspect-ratio: var(--ar, 3 / 2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; text-align: center; padding: 16px; color: var(--text-sub);
+  overflow: hidden;
+}
+.media__label { font-size: 14px; font-weight: 700; }
+.media__path { font-size: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.media.is-loaded { border: 1px solid var(--line); padding: 0; background: none; display: block; }
+.media.is-loaded img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --------------------------------------------------------------------------
+   9. START HERE
+   -------------------------------------------------------------------------- */
+/* 第1画面に4枚のカードが収まるよう、余白を詰めています */
+#start { padding-top: 18px; }
+#start .sec__title { font-size: 26px; margin-bottom: 4px; }
+#start .sec__lead { margin-bottom: 14px; font-size: 14.5px; }
+#start .sec__label { margin-bottom: 6px; }
+
+.startGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+
+.startCard {
+  display: flex; flex-direction: column;
+  background: #fff; border: 2px solid var(--line);
+  border-radius: var(--radius-lg); padding: 14px;
+}
+.startCard--key {
+  border-color: var(--cyan); background: var(--cyan-pale);
+  box-shadow: 0 2px 0 var(--cyan);
+}
+.startCard__no {
+  font-size: 13px; font-weight: 700; color: var(--cyan-dark); letter-spacing: .1em;
+}
+.startCard__ttl { font-size: 17px; color: var(--navy); margin: 4px 0 6px; line-height: 1.35; }
+.startCard__desc { font-size: 14px; line-height: 1.6; color: var(--text-sub); margin-bottom: 10px; flex: 1; }
+.startCard .btn { width: 100%; min-height: 50px; font-size: 16px; padding: 0 10px; }
+.startCard__help { font-size: 12px; color: var(--text-sub); margin: 6px 0 0; line-height: 1.45; }
+
+/* --------------------------------------------------------------------------
+   10. AGENDA
+   -------------------------------------------------------------------------- */
+.agendaCtrl {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  margin-bottom: 18px; font-size: 14px; color: var(--text-sub);
+}
+.agendaCtrl button {
+  min-height: 40px; padding: 0 14px; font-family: inherit; font-size: 14px;
+  font-weight: 700; color: var(--navy); background: #fff;
+  border: 1.5px solid var(--line-strong); border-radius: 8px; cursor: pointer;
+}
+.agendaCtrl button:hover { border-color: var(--cyan); background: var(--cyan-pale); }
+
+.agenda { list-style: none; margin: 0; padding: 0; }
+.agenda li {
+  display: grid; grid-template-columns: 124px 1fr auto;
+  gap: 16px; align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  margin-bottom: 8px; background: #fff;
+}
+.agenda li.is-now {
+  border-color: var(--orange); background: var(--orange-pale);
+  box-shadow: 0 0 0 2px var(--orange-pale);
+}
+.agenda li.is-done { opacity: .6; }
+.agenda__time { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
+.agenda__ttl { font-weight: 700; }
+.agenda__ttl a { color: var(--navy); }
+.agenda__ttl .now { color: #a14f0c; font-size: 13px; display: block; font-weight: 700; }
+.agenda__mode {
+  font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+  white-space: nowrap;
+}
+.mode--watch { background: #eaeef4; color: var(--navy); }
+.mode--touch { background: var(--cyan); color: #fff; }
+.mode--break { background: #f1e7d8; color: #7a5a2a; }
+
+/* --------------------------------------------------------------------------
+   11. カードグリッド（汎用）
+   -------------------------------------------------------------------------- */
+.grid { display: grid; gap: 16px; }
+.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.card {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px;
+}
+.card__ttl { font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+.card__txt { font-size: 14.5px; color: var(--text-sub); margin: 0; }
+
+/* WORK 1 ステップ */
+.step { position: relative; padding-top: 34px; }
+.step__no {
+  position: absolute; top: -14px; left: 18px;
+  background: var(--navy); color: #fff;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  padding: 5px 14px; border-radius: 999px;
+}
+.step__ttl { font-size: 18px; color: var(--navy); margin-bottom: 10px; }
+.step ol { margin: 0; padding-left: 1.2em; font-size: 14.5px; color: var(--text-sub); }
+.step ol li { margin-bottom: 5px; }
+.step kbd {
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  background: #eceff3; border: 1px solid var(--line-strong);
+  border-radius: 5px; padding: 1px 7px; color: var(--text);
+}
+
+/* 研修サンプル バッジ */
+.sampleBadge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--orange); color: #fff;
+  font-size: 13px; font-weight: 700;
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 12px;
+}
+
+.sampleBox {
+  border: 2px solid var(--orange); border-radius: var(--radius-lg);
+  padding: 22px; background: #fff;
+}
+.sampleBox dl { margin: 0; display: grid; grid-template-columns: 7em 1fr; gap: 6px 14px; font-size: 15px; }
+.sampleBox dt { color: var(--text-sub); }
+.sampleBox dd { margin: 0; font-weight: 700; }
+
+/* DESIGN TIPS */
+.tip { display: flex; gap: 16px; align-items: flex-start; }
+.tip__no {
+  flex: none; width: 40px; height: 40px; border-radius: 10px;
+  background: var(--cyan-pale); color: var(--cyan-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700;
+}
+
+/* WHAT'S NEW */
+.badge {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;
+}
+.badge--try { background: var(--cyan); color: #fff; }
+.badge--see { background: #eaeef4; color: var(--navy); }
+
+.card--feature {
+  grid-column: span 2;
+  border: 2px solid var(--cyan); background: var(--cyan-pale);
+}
+.card--feature .card__ttl { font-size: 22px; }
+
+/* 写真1枚から */
+.flow { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 20px; }
+.flow li {
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; font-size: 14.5px; font-weight: 700; color: var(--navy);
+}
+.flow li::after { content: "→"; margin-left: 10px; color: var(--line-strong); }
+.flow li:last-child::after { content: ""; margin: 0; }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
+.chips li {
+  background: var(--cyan-pale); color: var(--cyan-dark);
+  border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 700;
+}
+
+/* WORK 2 */
+.work2Card { border-left: 4px solid var(--cyan); }
+.work2Card .card__ttl { font-size: 16.5px; }
+
+/* SHARE */
+.shareSteps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.shareSteps li {
+  counter-increment: s;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px 18px 14px 56px; position: relative; font-size: 15px;
+}
+.shareSteps li::before {
+  content: counter(s);
+  position: absolute; left: 16px; top: 13px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--cyan); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+
+/* NEXT */
+.next {
+  background: var(--navy); color: #fff;
+  border-radius: var(--radius-lg); padding: 40px 36px;
+}
+.next .sec__label { background: rgba(255,255,255,.14); color: #a8e3ec; }
+.next .sec__title { color: #fff; }
+.next__date { font-size: 20px; font-weight: 700; color: #a8e3ec; margin-bottom: 8px; }
+.next__theme { font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+.next__copy { color: #cfdaea; font-size: 17px; margin: 0; }
+
+/* FEEDBACK */
+.feedback { text-align: center; padding: 48px 24px; }
+.feedback .sec__title { font-size: 26px; }
+.feedback .btn { max-width: 520px; margin: 0 auto; }
+
+/* HELP */
+.faq { display: grid; gap: 10px; }
+.faq__q { font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.faq__a { font-size: 14.5px; color: var(--text-sub); margin: 0; }
+
+.linkTable { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
+.linkTable th, .linkTable td {
+  border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top;
+}
+.linkTable th { background: var(--bg-alt); color: var(--navy); white-space: nowrap; }
+.linkTable td { word-break: break-all; }
+.linkTable .unset { color: var(--disabled-tx); }
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background: var(--navy); color: #cfdaea;
+  padding: 32px 28px; font-size: 14px; margin-top: 40px;
+}
+.footer__inner { max-width: 1440px; margin: 0 auto; }
+.footer b { color: #fff; font-size: 16px; }
+
+/* --------------------------------------------------------------------------
+   13. スマホ用 下部固定バー・目次シート
+   -------------------------------------------------------------------------- */
+.mobileBar {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 100;
+  height: var(--mobilebar-h);
+  background: #fff; border-top: 1px solid var(--line-strong);
+  padding: 8px 12px; gap: 10px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,.08);
+}
+.mobileBar .btn { flex: 1; min-height: 52px; font-size: 16px; }
+
+.sheet {
+  position: fixed; inset: 0; z-index: 150;
+  background: rgba(10,20,35,.5);
+  display: flex; align-items: flex-end;
+}
+.sheet[hidden] { display: none !important; }
+.sheet__panel {
+  background: #fff; width: 100%; max-height: 82vh; overflow-y: auto;
+  border-radius: 18px 18px 0 0; padding: 18px 18px 28px;
+}
+.sheet__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.sheet__head h2 { font-size: 18px; color: var(--navy); }
+.sheet__close {
+  min-height: 44px; padding: 0 16px; font-family: inherit; font-size: 15px; font-weight: 700;
+  background: var(--bg-alt); border: 1px solid var(--line-strong); border-radius: 10px; cursor: pointer;
+}
+.sheet__list { list-style: none; margin: 0; padding: 0; }
+.sheet__list a {
+  display: block; padding: 14px 12px; font-size: 16px; font-weight: 700;
+  color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive
+   -------------------------------------------------------------------------- */
+
+/* 画面の縦が短いPC（1366×768 など）では、
+   第1画面に「START HERE」の4枚を必ず収めるため、Heroをさらに圧縮します。 */
+@media (min-width: 901px) and (max-height: 880px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding: 14px 0 6px; }
+  .hero > .media { display: none; }
+  .hero__title { font-size: 27px; }
+  .hero__title span { font-size: 17px; }
+  .hero__meta { margin: 8px 0 8px; }
+  .hero__reassure { font-size: 13.5px; padding: 4px 12px; margin-bottom: 6px; }
+  .hero__copy { font-size: 16px; }
+  .today { margin-top: 12px; }
+  .today .sub { display: none; }
+  #start { padding-top: 12px; }
+  #start .sec__label { margin-bottom: 4px; }
+  #start .sec__lead { margin-bottom: 10px; }
+  .startCard__help { display: none; }
+}
+
+/* さらに縦が短いPC（1366×768 など）：
+   「今日やること」を1行のコンパクト表示にして、4枚のカードを確実に見せます。 */
+@media (min-width: 901px) and (max-height: 820px) {
+  .today { display: flex; gap: 8px; margin-top: 10px; }
+  .today li { flex: 1; display: flex; align-items: center; gap: 8px; padding: 7px 12px; }
+  .today .num { width: 22px; height: 22px; font-size: 11px; margin-bottom: 0; flex: none; }
+  .today .txt { font-size: 14px; }
+  .startCard { padding: 12px; }
+  .startCard__no { font-size: 12px; }
+  .startCard__ttl { font-size: 16px; }
+  .startCard__desc { font-size: 13.5px; margin-bottom: 8px; }
+  .startCard .btn { min-height: 48px; font-size: 15px; }
+  #start .sec__lead { margin-bottom: 8px; }
+}
+@media (max-width: 1080px) {
+  .startGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  :root { --topbar-h: 58px; }
+
+  body { padding-bottom: var(--mobilebar-h); }
+
+  .topbar__actions { display: none; }
+  .navToggle { display: block; }
+
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 18px; }
+  .sidebar { display: none; }
+  .mobileBar { display: flex; }
+
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 0; }
+  .hero__title { font-size: 28px; }
+  .hero__title span { font-size: 18px; }
+
+  .sec { padding: 40px 0; }
+  .sec--alt { padding: 32px 20px; margin: 40px 0; }
+  .sec__title { font-size: 23px; }
+
+  .startGrid { grid-template-columns: minmax(0, 1fr); }
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: minmax(0, 1fr); }
+  .card--feature { grid-column: auto; }
+
+  .agenda li { grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .agenda__time { grid-column: 1 / -1; font-size: 15px; }
+  /* スマホではタップしやすいように、リンクの当たり判定を広げます */
+  .agenda__ttl a { display: inline-block; padding: 9px 2px; }
+  .agendaCtrl button { min-height: 44px; }
+
+  .next { padding: 32px 22px; }
+  .next__theme { font-size: 21px; }
+
+  .sampleBox dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .sampleBox dt { font-size: 13px; }
+  .sampleBox dd { margin-bottom: 8px; }
+}
+
+/* --------------------------------------------------------------------------
+   15. Motion / Print
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+@media print {
+  .topbar, .sidebar, .mobileBar, .sheet, .agendaCtrl { display: none !important; }
+  body { padding: 0; font-size: 12pt; }
+  .layout { display: block; padding: 0; }
+  .sec { break-inside: avoid; page-break-inside: avoid; }
+}
