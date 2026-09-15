@@ -20,7 +20,8 @@ var CONFIG = {
   materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
   slides     : "",                          // ⑤ 今日の資料
   shareForm  : "",                          // ⑥ 成果共有フォーム（今回は未使用。使う場合のみURLを入れる）
-  survey     : ""                           // ⑦ 研修アンケート
+  survey     : "",                          // ⑦ 研修アンケート
+  book       : ""                           // ⑧ 講師の著作（出版社サイト等）
 };
 
 /* リンク一覧に表示する名称（CONFIGのキーと対応） */
@@ -31,7 +32,8 @@ var LINK_LABELS = {
   materials  : "演習用素材",
   slides     : "今日の資料",
   shareForm  : "成果共有フォーム",
-  survey     : "研修アンケート"
+  survey     : "研修アンケート",
+  book       : "講師の著作（出版社サイト）"
 };
 
 /* 研修日（この日だけ、アジェンダの「いまここ」が自動表示されます） */
@@ -75,7 +77,7 @@ var TRAINING_DATE = "2026-09-18";
     var tbody = document.getElementById("linkTableBody");
     if (!tbody) { return; }
 
-    var order = ["canvaClass", "canvaHome", "work1", "materials", "slides", "survey", "shareForm"];
+    var order = ["canvaClass", "canvaHome", "work1", "materials", "slides", "survey", "shareForm", "book"];
     var html = "";
 
     for (var i = 0; i < order.length; i++) {

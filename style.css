@@ -458,6 +458,61 @@ main { min-width: 0; padding-bottom: 80px; }
   border-radius: 8px; padding: 6px 14px; font-size: 14px; font-weight: 700;
 }
 
+/* 講師紹介 */
+.profile { display: flex; gap: 18px; align-items: flex-start; }
+.profile__body { min-width: 0; }
+.profile__name {
+  font-size: 19px; color: var(--navy); margin-bottom: 4px;
+}
+.profile__name span {
+  font-size: 13px; font-weight: 400; color: var(--text-sub); margin-left: 8px;
+}
+.profile__role { font-size: 13.5px; color: var(--text-sub); margin: 0 0 10px; line-height: 1.6; }
+.profile__txt { font-size: 14.5px; color: var(--text); margin: 0; line-height: 1.75; }
+
+.media--avatar {
+  flex: none; width: 104px; aspect-ratio: 1 / 1; border-radius: 50%;
+  font-size: 13px; padding: 0;
+}
+.media--avatar.is-loaded { border-radius: 50%; }
+.media--avatar.is-loaded img { border-radius: 50%; }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 12px; }
+.tags li {
+  background: var(--cyan-pale); color: var(--cyan-dark);
+  font-size: 12.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+}
+
+/* 著作紹介 */
+.bookCard {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.bookCard__cover { width: 220px; }
+.bookCard__ttl { font-size: 22px; color: var(--navy); margin-bottom: 6px; }
+.bookCard__pub {
+  display: inline-block; font-size: 13px; font-weight: 700;
+  background: var(--bg-alt); color: var(--text-sub);
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
+}
+.bookBadges { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; }
+.bookBadges li {
+  background: var(--orange-pale); color: #9a4c0a;
+  font-size: 14.5px; font-weight: 700;
+  padding: 9px 18px; border-radius: 999px; justify-self: start;
+}
+.bookSpec {
+  margin: 0 0 14px; display: grid; grid-template-columns: 5.5em 1fr;
+  gap: 4px 14px; font-size: 14.5px;
+}
+.bookSpec dt { color: var(--text-sub); }
+.bookSpec dd { margin: 0; font-weight: 700; }
+.bookCard__authors {
+  font-size: 13px; color: var(--text-sub); line-height: 1.7; margin: 0 0 18px;
+}
+.bookCard .btn { min-height: 52px; }
+
 /* WORK 2 */
 .work2Card { border-left: 4px solid var(--cyan); }
 .work2Card .card__ttl { font-size: 16.5px; }
@@ -626,6 +681,15 @@ main { min-width: 0; padding-bottom: 80px; }
 
   .next { padding: 32px 22px; }
   .next__theme { font-size: 21px; }
+
+  .profile { flex-direction: column; align-items: center; text-align: center; }
+  .profile__body { text-align: left; width: 100%; }
+  .tags { justify-content: flex-start; }
+
+  .bookCard { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 20px; }
+  .bookCard__cover { width: 190px; margin: 0 auto; }
+  .bookCard__ttl { font-size: 19px; }
+  .bookSpec { grid-template-columns: 5em 1fr; font-size: 14px; }
 
   .sampleBox dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .sampleBox dt { font-size: 13px; }
