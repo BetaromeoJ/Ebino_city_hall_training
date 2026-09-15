@@ -16,7 +16,7 @@
 var CONFIG = {
   canvaClass : "https://www.canva.com/brand/join?token=M0FB040stfUoReg4tEy1cw&brandingVariant=edu&invitationDestinationType=group",  // ① 研修用Canvaクラス 招待リンク
   canvaHome  : "https://www.canva.com/",    // ② Canvaを開く
-  work1      : "",                          // ③ ワーク1 演習用デザイン
+  work1      : "https://canva.link/hd944oyen6jc2ie",  // ③ ワーク1 演習用デザイン「Ebino Walking」
   materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
   slides     : "",                          // ⑤ 今日の資料
   shareForm  : "https://docs.google.com/forms/d/e/1FAIpQLSc-Sp5wO40t4THAf9vhv06zhjLhDFco_iURTMFVOwygsyqP-Q/viewform",  // ⑥ 成果共有フォーム（PNG作品の提出先）
