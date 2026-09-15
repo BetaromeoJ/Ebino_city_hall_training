@@ -10,6 +10,15 @@
 </head>
 <body>
 
+<script>
+/* 前回「文字を大きく」を選んでいた場合、表示前に反映します（ちらつき防止） */
+try {
+  if (localStorage.getItem("ebino-font") === "lg") {
+    document.documentElement.setAttribute("data-font", "lg");
+  }
+} catch (e) {}
+</script>
+
 <a class="skip-link" href="#start">本文（START HERE）へスキップ</a>
 
 <!-- ============================================================
@@ -20,6 +29,10 @@
     えびの市役所 Canvaワークショップ
     <small>第1回 基礎編／2026.09.18</small>
   </div>
+
+  <button class="fontToggle" id="fontToggle" type="button" aria-pressed="false">
+    <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+  </button>
 
   <div class="topbar__actions">
     <a class="btn btn--navy is-pending" data-link="canvaClass" aria-disabled="true">
@@ -404,7 +417,7 @@
         演習用デザインを開く
         <span class="btn__state">準備中</span>
       </a>
-      <p style="font-size:13px;color:#5b6572;margin-bottom:28px;">開かない場合は講師にお知らせください。</p>
+      <p class="helpNote helpNote--gap">開かない場合は講師にお知らせください。</p>
 
       <div class="grid grid--3">
 
@@ -488,7 +501,7 @@
       </div>
 
       <div style="margin-top:28px;">
-        <p style="font-size:14px;font-weight:700;color:#14315c;">完成イメージ</p>
+        <p class="figLabel">完成イメージ</p>
         <div class="media" data-img="images/work1-sample.jpg" data-alt="ワーク1の完成見本"
              style="--ar:3/4;max-width:300px;">
           <span class="media__label">画像準備中</span>
@@ -548,14 +561,14 @@
 
       <div class="grid grid--2" style="margin-top:24px;">
         <div>
-          <p style="font-size:14px;font-weight:700;color:#14315c;">Before</p>
+          <p class="figLabel">Before</p>
           <div class="media" data-img="images/before.jpg" data-alt="改善前のチラシ例" style="--ar:3/4;">
             <span class="media__label">画像準備中</span>
             <span class="media__path">images/before.jpg</span>
           </div>
         </div>
         <div>
-          <p style="font-size:14px;font-weight:700;color:#14315c;">After</p>
+          <p class="figLabel">After</p>
           <div class="media" data-img="images/after.jpg" data-alt="改善後のチラシ例" style="--ar:3/4;">
             <span class="media__label">画像準備中</span>
             <span class="media__path">images/after.jpg</span>
@@ -659,14 +672,14 @@
 
       <div class="grid grid--2" style="margin-bottom:22px;">
         <div>
-          <p style="font-size:14px;font-weight:700;color:#14315c;">元の写真</p>
+          <p class="figLabel">元の写真</p>
           <div class="media" data-img="images/photo-before.jpg" data-alt="加工前の写真">
             <span class="media__label">画像準備中</span>
             <span class="media__path">images/photo-before.jpg</span>
           </div>
         </div>
         <div>
-          <p style="font-size:14px;font-weight:700;color:#14315c;">加工後</p>
+          <p class="figLabel">加工後</p>
           <div class="media" data-img="images/photo-after.jpg" data-alt="加工後の広報画像">
             <span class="media__label">画像準備中</span>
             <span class="media__path">images/photo-after.jpg</span>
@@ -811,7 +824,7 @@
         成果共有フォームを開く
         <span class="btn__state">準備中</span>
       </a>
-      <p style="font-size:13px;color:#5b6572;margin-top:8px;">
+      <p class="helpNote">
         ※今回は挙手＋画面投影で共有します。フォームは使用しません。
       </p>
     </section>
@@ -846,7 +859,7 @@
         アンケートに回答する
         <span class="btn__state">準備中</span>
       </a>
-      <p style="font-size:13px;color:#5b6572;margin-top:10px;">開かない場合は講師にお知らせください。</p>
+      <p class="helpNote">開かない場合は講師にお知らせください。</p>
     </section>
 
     <!-- ========================================================
@@ -903,7 +916,7 @@
       </div>
 
       <h3 class="card__ttl" style="margin:28px 0 6px;">今日使うリンク一覧</h3>
-      <p style="font-size:14px;color:#5b6572;">
+      <p class="helpNote">
         ボタンが開かないときは、こちらのURLを直接入力してください。
       </p>
       <table class="linkTable">
@@ -950,6 +963,10 @@
       <h2>目次</h2>
       <button class="sheet__close" type="button" id="sheetClose">閉じる</button>
     </div>
+    <button class="fontToggle fontToggle--sheet" id="fontToggleSheet" type="button" aria-pressed="false">
+      <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+    </button>
+
     <ul class="sheet__list">
       <li><a href="#top">今日やること</a></li>
       <li><a href="#start">はじめに開くもの</a></li>

@@ -266,6 +266,44 @@ var TRAINING_DATE = "2026-09-18";
   }
 
   /* ------------------------------------------------------------------
+     5.5 文字サイズの切替（「文字を大きく」ボタン）
+         html に data-font="lg" を付け外しするだけで、ページ全体の文字が
+         約1.15倍になります。選んだ状態はこのPCのブラウザに記憶されます。
+     ------------------------------------------------------------------ */
+  function initFontToggle() {
+    var buttons = [
+      document.getElementById("fontToggle"),
+      document.getElementById("fontToggleSheet")
+    ];
+    var root = document.documentElement;
+
+    function isLarge() { return root.getAttribute("data-font") === "lg"; }
+
+    function render() {
+      var large = isLarge();
+      for (var i = 0; i < buttons.length; i++) {
+        if (!buttons[i]) { continue; }
+        buttons[i].setAttribute("aria-pressed", large ? "true" : "false");
+        var label = buttons[i].querySelector(".fontToggle__label");
+        if (label) { label.textContent = large ? "文字を標準に" : "文字を大きく"; }
+      }
+    }
+
+    function toggle() {
+      var large = !isLarge();
+      if (large) { root.setAttribute("data-font", "lg"); }
+      else { root.removeAttribute("data-font"); }
+      try { localStorage.setItem("ebino-font", large ? "lg" : "std"); } catch (e) {}
+      render();
+    }
+
+    for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i]) { buttons[i].addEventListener("click", toggle); }
+    }
+    render();
+  }
+
+  /* ------------------------------------------------------------------
      6. スマホ用 目次シート
      ------------------------------------------------------------------ */
   function initSheet() {
@@ -304,6 +342,7 @@ var TRAINING_DATE = "2026-09-18";
     loadImages();
     initScrollSpy();
     initAgenda();
+    initFontToggle();
     initSheet();
   }
 
