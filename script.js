@@ -17,11 +17,9 @@ var CONFIG = {
   canvaClass : "https://www.canva.com/brand/join?token=M0FB040stfUoReg4tEy1cw&brandingVariant=edu&invitationDestinationType=group",  // ① 研修用Canvaクラス 招待リンク
   canvaHome  : "https://www.canva.com/",    // ② Canvaを開く
   work1      : "https://canva.link/hd944oyen6jc2ie",  // ③ ワーク1 演習用デザイン「Ebino Walking」
-  materials  : "",                          // ④ 演習用素材（写真・ロゴなど）
-  slides     : "",                          // ⑤ 今日の資料
-  shareForm  : "https://docs.google.com/forms/d/e/1FAIpQLSc-Sp5wO40t4THAf9vhv06zhjLhDFco_iURTMFVOwygsyqP-Q/viewform",  // ⑥ 成果共有フォーム（PNG作品の提出先）
-  survey     : "https://docs.google.com/forms/d/e/1FAIpQLSchfKUDeaERQi0vHxrsC7Pmlmemo-pCD_i-w52P7vCPs7us4A/viewform",  // ⑦ 研修アンケート
-  book       : "https://gihyo.jp/book/2026/978-4-297-15660-2"  // ⑧ 講師の著作（技術評論社）
+  shareForm  : "https://docs.google.com/forms/d/e/1FAIpQLSc-Sp5wO40t4THAf9vhv06zhjLhDFco_iURTMFVOwygsyqP-Q/viewform",  // ④ 成果共有フォーム（PNG作品の提出先）
+  survey     : "https://docs.google.com/forms/d/e/1FAIpQLSchfKUDeaERQi0vHxrsC7Pmlmemo-pCD_i-w52P7vCPs7us4A/viewform",  // ⑤ 研修アンケート
+  book       : "https://gihyo.jp/book/2026/978-4-297-15660-2"  // ⑥ 講師の著作（技術評論社）
 };
 
 /* リンク一覧に表示する名称（CONFIGのキーと対応） */
@@ -29,8 +27,6 @@ var LINK_LABELS = {
   canvaClass : "研修用Canvaクラス（招待リンク）",
   canvaHome  : "Canva",
   work1      : "ワーク1 演習用デザイン",
-  materials  : "演習用素材",
-  slides     : "今日の資料",
   shareForm  : "成果共有フォーム",
   survey     : "研修アンケート",
   book       : "講師の著作（出版社サイト）"
@@ -74,7 +70,7 @@ var LINK_LABELS = {
     var tbody = document.getElementById("linkTableBody");
     if (!tbody) { return; }
 
-    var order = ["canvaClass", "canvaHome", "work1", "materials", "slides", "survey", "shareForm", "book"];
+    var order = ["canvaClass", "canvaHome", "work1", "survey", "shareForm", "book"];
     var html = "";
 
     for (var i = 0; i < order.length; i++) {

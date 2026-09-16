@@ -367,6 +367,8 @@ main { min-width: 0; padding-bottom: 80px; }
 #start .sec__label { margin-bottom: 6px; }
 
 .startGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+/* カードが2枚のとき（STARTページ）は2列で大きく見せます */
+.startGrid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; }
 
 .startCard {
   display: flex; flex-direction: column;
@@ -669,6 +671,27 @@ main { min-width: 0; padding-bottom: 80px; }
 .linkTable td { word-break: break-all; }
 .linkTable .unset { color: var(--disabled-tx); }
 
+/* ページ移動（前へ／次へ）
+   受講者が進捗を管理するものではなく、講師の案内で進むための導線です。 */
+.pageNav {
+  display: flex; justify-content: space-between; align-items: stretch; gap: 16px;
+  margin: 48px 0 8px; padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.pageNav__link {
+  display: flex; flex-direction: column; gap: 4px;
+  min-height: 64px; padding: 14px 22px; max-width: 48%;
+  background: #fff; border: 2px solid var(--line-strong);
+  border-radius: var(--radius); text-decoration: none;
+}
+.pageNav__link:hover { border-color: var(--cyan); background: var(--cyan-pale); }
+.pageNav__next { background: var(--cyan); border-color: var(--cyan); text-align: right; }
+.pageNav__next:hover { background: var(--cyan-dark); border-color: var(--cyan-dark); }
+.pageNav__dir { font-size: 0.875rem; font-weight: 700; color: var(--text-sub); }
+.pageNav__ttl { font-size: 1.0625rem; font-weight: 700; color: var(--navy); line-height: 1.4; }
+.pageNav__next .pageNav__dir { color: #d6f1f4; }
+.pageNav__next .pageNav__ttl { color: #fff; }
+
 /* --------------------------------------------------------------------------
    12. Footer
    -------------------------------------------------------------------------- */
@@ -813,6 +836,9 @@ main { min-width: 0; padding-bottom: 80px; }
   /* スマホではタップしやすいように、リンクの当たり判定を広げます */
   .agenda__ttl a { display: inline-block; padding: 9px 2px; }
 
+  .pageNav { flex-direction: column; gap: 12px; }
+  .pageNav__link { max-width: 100%; }
+
   .next { padding: 32px 22px; }
   .next__theme { font-size: 1.4688rem; }
 
@@ -847,7 +873,7 @@ main { min-width: 0; padding-bottom: 80px; }
 }
 
 @media print {
-  .topbar, .sidebar, .mobileBar, .sheet { display: none !important; }
+  .topbar, .sidebar, .mobileBar, .sheet, .pageNav { display: none !important; }
   body { padding: 0; font-size: 12pt; }
   .layout { display: block; padding: 0; }
   .sec { break-inside: avoid; page-break-inside: avoid; }

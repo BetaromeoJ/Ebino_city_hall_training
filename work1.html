@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ワーク1 まず1枚、触ってみよう｜えびの市役所 Canvaワークショップ 第1回 基礎編</title>
+<meta name="description" content="えびの市役所 広報スキルアップ「Canva」ワークショップセミナー 第1回 基礎編（2026年9月18日）の受講者用ポータルです。研修中に必要なリンク・手順・資料をここにまとめています。">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+/* 前回「文字を大きく」を選んでいた場合、表示前に反映します（ちらつき防止） */
+try {
+  if (localStorage.getItem("ebino-font") === "lg") {
+    document.documentElement.setAttribute("data-font", "lg");
+  }
+} catch (e) {}
+</script>
+
+<a class="skip-link" href="#mainStart">本文へスキップ</a>
+
+<!-- ============================================================
+     常時表示バー
+     ============================================================ -->
+<header class="topbar">
+  <div class="topbar__title">
+    えびの市役所 Canvaワークショップ
+    <small>第1回 基礎編／2026.09.18</small>
+  </div>
+
+  <button class="fontToggle" id="fontToggle" type="button" aria-pressed="false">
+    <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+  </button>
+
+  <div class="topbar__actions">
+    <a class="btn btn--navy is-pending" data-link="canvaClass" aria-disabled="true">
+      研修用Canvaクラスに参加
+      <span class="btn__state">準備中</span>
+    </a>
+    <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
+      Canvaを開く
+      <span class="btn__state">準備中</span>
+    </a>
+  </div>
+
+  <button class="navToggle" type="button" data-sheet-open>目次</button>
+</header>
+
+<div class="layout">
+
+  <!-- ==========================================================
+       サイドナビ（PC）
+       ========================================================== -->
+  <nav class="sidebar" aria-label="ページ内の目次">
+
+    <!-- スクロールしても常に見えるロゴ -->
+    <div class="media media--logo sidebar__logo" data-img="images/canva-logo.png"
+         data-alt="Canva（キャンバ）" style="--ar:800/366;">
+      <span class="media__label">Canva</span>
+    </div>
+
+    <div class="sidebar__scroll">
+    <p class="sidebar__head">今日のながれ</p>
+    <ul class="sidebar__list">
+      <li><a href="index.html#top">今日やること</a></li>
+      <li><a href="index.html#start">はじめに開くもの</a></li>
+      <li><a href="index.html#agenda">今日のロードマップ</a></li>
+      <li><a href="index.html#instructor">講師紹介</a></li>
+      <li><a href="index.html#book">講師の著作</a></li>
+      <li><a href="#work1">ワーク1 まず1枚</a></li>
+      <li><a href="learn.html#tips">伝わるデザイン</a></li>
+      <li><a href="learn.html#whatsnew">2026 新機能</a></li>
+      <li><a href="learn.html#photo">写真1枚から</a></li>
+      <li><a href="learn.html#canvatips">明日使える小技</a></li>
+      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+      <li><a href="share.html#share">作品を共有する</a></li>
+      <li><a href="share.html#feedback">アンケート</a></li>
+      <li><a href="share.html#help">困ったとき</a></li>
+      <li><a href="share.html#next">第2回 予告</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <main id="mainStart">
+<!-- ========================================================
+         WORK 1
+         ======================================================== -->
+    <section class="sec sec--alt" id="work1">
+      <span class="sec__label">WORK 1</span>
+      <h2 class="sec__title">まず1枚、触ってみよう</h2>
+      <p class="sec__lead">
+        用意された「Ebino Walking」のデザインを使います。完成させなくても大丈夫です。
+        文字やイラストを触りながら、Canvaの基本操作を試してみましょう。
+      </p>
+
+      <div style="margin-bottom:24px;">
+        <span class="sampleBadge">研修サンプル（実在の行事ではありません）</span>
+        <div class="sampleBox">
+          <h3 class="card__ttl">演習用デザイン「Ebino Walking」</h3>
+          <p class="card__txt" style="margin-bottom:10px;">
+            秋のウォーキングイベントを想定した、縦型のチラシです。次のものが入っています。
+          </p>
+          <ul class="sampleList">
+            <li>上部の秋のガーランド</li>
+            <li>「Ebino Walking」のタイトル</li>
+            <li>イベント名・日時・場所</li>
+            <li>ウォーキングをする人物のイラスト</li>
+            <li>秋の葉の装飾</li>
+          </ul>
+          <p class="note note--warn">
+            これは研修用に用意した架空の行事です。実際の市の行事ではありません。
+          </p>
+        </div>
+      </div>
+
+      <a class="btn btn--primary btn--lg is-pending" data-link="work1" aria-disabled="true"
+         style="margin-bottom:8px;">
+        演習用デザインを開く
+        <span class="btn__state">準備中</span>
+      </a>
+      <p class="helpNote helpNote--gap">
+        今日の演習用デザインが開きます（上の「Canvaを開く」はCanvaのホーム画面です）。
+        開かない場合は講師にお知らせください。
+      </p>
+
+      <div class="grid grid--3">
+
+        <div class="card step">
+          <span class="step__no">1</span>
+          <h3 class="step__ttl">文字を変える</h3>
+          <ol>
+            <li>変えたい文字を<strong>ダブルクリック</strong></li>
+            <li><kbd>Ctrl</kbd> + <kbd>A</kbd> で全部選ぶ</li>
+            <li>そのまま打ち直す</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            イベント名・日時・場所など、変えたいところだけで大丈夫です。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">2</span>
+          <h3 class="step__ttl">文字の大きさ・色を変える</h3>
+          <ol>
+            <li>文字をクリックして選ぶ</li>
+            <li>画面の上に出てくる欄で、サイズ・フォント・色を変える</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            全部変える必要はありません。1か所だけでも印象が変わります。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">3</span>
+          <h3 class="step__ttl">イラストを動かす・変える</h3>
+          <ol>
+            <li>人物のイラストをクリック</li>
+            <li>角をドラッグして大きさを変える</li>
+            <li>そのままドラッグして位置を変える</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            左の「素材」から、別のイラストに差し替えることもできます。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">4</span>
+          <h3 class="step__ttl">情報を追加する</h3>
+          <ol>
+            <li>左の「テキスト」をクリック</li>
+            <li>空いているところに文字を足す</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            たとえば、参加費・持ち物・申込方法・問い合わせ先など。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">5</span>
+          <h3 class="step__ttl">余裕があればQRコードなども</h3>
+          <ol>
+            <li>左の「アプリ」をクリック</li>
+            <li>「QRコード」を選ぶ</li>
+            <li>URLを貼り付けて「コードを生成」</li>
+          </ol>
+          <p class="card__txt" style="margin-top:10px;">
+            必須ではありません。「こんなこともできる」という発展です。
+          </p>
+        </div>
+
+        <div class="card step step--calm">
+          <span class="step__no">ひとこと</span>
+          <h3 class="step__ttl">全部やらなくて大丈夫です</h3>
+          <p class="card__txt">
+            できるところまでで大丈夫です。触ってみて「あ、変わった」と分かれば、
+            今日のワーク1はうまくいっています。<br>
+            分からなくなったら、遠慮なく講師にお知らせください。
+          </p>
+        </div>
+
+      </div>
+
+      <div style="margin-top:28px;">
+        <p class="figLabel">演習用デザインのイメージ</p>
+        <div class="media" data-img="images/work1-sample.jpg" data-alt="演習用デザイン Ebino Walking"
+             style="--ar:1414/2000;max-width:300px;">
+          <span class="media__label">画像準備中</span>
+          <span class="media__path">images/work1-sample.jpg</span>
+        </div>
+      </div>
+    
+      <p class="note">
+        ここまでできたら、そのままお待ちください。全部完成していなくても大丈夫です。
+      </p>
+    </section>
+
+    <nav class="pageNav" aria-label="ページの移動">
+      <a class="pageNav__link pageNav__prev" href="index.html"><span class="pageNav__dir">← まえ</span><span class="pageNav__ttl">START にもどる</span></a>
+      <a class="pageNav__link pageNav__next" href="learn.html"><span class="pageNav__dir">つぎ →</span><span class="pageNav__ttl">伝わるデザイン</span></a>
+    </nav>
+  </main>
+</div>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p style="margin-bottom:4px;">
+      えびの市役所　広報スキルアップ「Canva」ワークショップセミナー　第1回 基礎編
+    </p>
+    <p style="margin-bottom:4px;">2026年9月18日（金）13:30 – 16:30／えびの市役所 会議室</p>
+    <p style="margin:0;"><b>講師：和田 倫周・中野 信盛</b></p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     スマホ用 下部固定バー
+     ============================================================ -->
+<div class="mobileBar">
+  <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
+    Canvaを開く
+    <span class="btn__state">準備中</span>
+  </a>
+  <button class="btn btn--outline" type="button" data-sheet-open>目次</button>
+</div>
+
+<!-- ============================================================
+     スマホ用 目次シート
+     ============================================================ -->
+<div class="sheet" id="navSheet" hidden>
+  <div class="sheet__panel" role="dialog" aria-modal="true" aria-label="目次">
+    <div class="sheet__head">
+      <h2>目次</h2>
+      <button class="sheet__close" type="button" id="sheetClose">閉じる</button>
+    </div>
+
+    <div class="media media--logo sheet__logo" data-img="images/canva-logo.png"
+         data-alt="Canva（キャンバ）" style="--ar:800/366;">
+      <span class="media__label">Canva</span>
+    </div>
+
+    <button class="fontToggle fontToggle--sheet" id="fontToggleSheet" type="button" aria-pressed="false">
+      <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+    </button>
+
+    <ul class="sheet__list">
+      <li><a href="index.html#top">今日やること</a></li>
+      <li><a href="index.html#start">はじめに開くもの</a></li>
+      <li><a href="index.html#agenda">今日のロードマップ</a></li>
+      <li><a href="index.html#instructor">講師紹介</a></li>
+      <li><a href="index.html#book">講師の著作</a></li>
+      <li><a href="#work1">ワーク1 まず1枚</a></li>
+      <li><a href="learn.html#tips">伝わるデザイン</a></li>
+      <li><a href="learn.html#whatsnew">2026 新機能</a></li>
+      <li><a href="learn.html#photo">写真1枚から</a></li>
+      <li><a href="learn.html#canvatips">明日使える小技</a></li>
+      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+      <li><a href="share.html#share">作品を共有する</a></li>
+      <li><a href="share.html#feedback">アンケート</a></li>
+      <li><a href="share.html#help">困ったとき</a></li>
+      <li><a href="share.html#next">第2回 予告</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

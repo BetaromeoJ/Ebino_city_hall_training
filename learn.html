@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>伝わるデザイン／2026新機能／写真1枚から｜えびの市役所 Canvaワークショップ 第1回 基礎編</title>
+<meta name="description" content="えびの市役所 広報スキルアップ「Canva」ワークショップセミナー 第1回 基礎編（2026年9月18日）の受講者用ポータルです。研修中に必要なリンク・手順・資料をここにまとめています。">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+/* 前回「文字を大きく」を選んでいた場合、表示前に反映します（ちらつき防止） */
+try {
+  if (localStorage.getItem("ebino-font") === "lg") {
+    document.documentElement.setAttribute("data-font", "lg");
+  }
+} catch (e) {}
+</script>
+
+<a class="skip-link" href="#mainStart">本文へスキップ</a>
+
+<!-- ============================================================
+     常時表示バー
+     ============================================================ -->
+<header class="topbar">
+  <div class="topbar__title">
+    えびの市役所 Canvaワークショップ
+    <small>第1回 基礎編／2026.09.18</small>
+  </div>
+
+  <button class="fontToggle" id="fontToggle" type="button" aria-pressed="false">
+    <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+  </button>
+
+  <div class="topbar__actions">
+    <a class="btn btn--navy is-pending" data-link="canvaClass" aria-disabled="true">
+      研修用Canvaクラスに参加
+      <span class="btn__state">準備中</span>
+    </a>
+    <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
+      Canvaを開く
+      <span class="btn__state">準備中</span>
+    </a>
+  </div>
+
+  <button class="navToggle" type="button" data-sheet-open>目次</button>
+</header>
+
+<div class="layout">
+
+  <!-- ==========================================================
+       サイドナビ（PC）
+       ========================================================== -->
+  <nav class="sidebar" aria-label="ページ内の目次">
+
+    <!-- スクロールしても常に見えるロゴ -->
+    <div class="media media--logo sidebar__logo" data-img="images/canva-logo.png"
+         data-alt="Canva（キャンバ）" style="--ar:800/366;">
+      <span class="media__label">Canva</span>
+    </div>
+
+    <div class="sidebar__scroll">
+    <p class="sidebar__head">今日のながれ</p>
+    <ul class="sidebar__list">
+      <li><a href="index.html#top">今日やること</a></li>
+      <li><a href="index.html#start">はじめに開くもの</a></li>
+      <li><a href="index.html#agenda">今日のロードマップ</a></li>
+      <li><a href="index.html#instructor">講師紹介</a></li>
+      <li><a href="index.html#book">講師の著作</a></li>
+      <li><a href="work1.html#work1">ワーク1 まず1枚</a></li>
+      <li><a href="#tips">伝わるデザイン</a></li>
+      <li><a href="#whatsnew">2026 新機能</a></li>
+      <li><a href="#photo">写真1枚から</a></li>
+      <li><a href="#canvatips">明日使える小技</a></li>
+      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+      <li><a href="share.html#share">作品を共有する</a></li>
+      <li><a href="share.html#feedback">アンケート</a></li>
+      <li><a href="share.html#help">困ったとき</a></li>
+      <li><a href="share.html#next">第2回 予告</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <main id="mainStart">
+<!-- ========================================================
+         DESIGN TIPS
+         ======================================================== -->
+    <section class="sec" id="tips">
+      <span class="sec__label">DESIGN TIPS</span>
+      <h2 class="sec__title">伝わるデザイン、5つのポイント</h2>
+      <p class="note">
+        さきほど触った「Ebino Walking」を、もう一度見てみましょう。
+      </p>
+
+      <div style="margin-top:22px;">
+        <p class="figLabel">Before</p>
+        <div class="media" data-img="images/before.jpg" data-alt="Ebino Walking の演習用デザイン（改善前）"
+             style="--ar:1414/2000;max-width:380px;">
+          <span class="media__label">画像準備中</span>
+          <span class="media__path">images/before.jpg</span>
+        </div>
+      </div>
+
+      <p class="askBox">もっと伝わる1枚にするとしたら、どこを変えますか？</p>
+
+      <p class="sec__lead">
+        きれいにすることがデザインではありません。<strong>伝わりやすくすることがデザイン</strong>です。
+        この5つだけ覚えて帰ってください。
+      </p>
+
+      <div class="grid grid--2">
+        <div class="card tip">
+          <span class="tip__no">1</span>
+          <div>
+            <h3 class="card__ttl">一番伝えたいことを、一番大きく</h3>
+            <p class="card__txt">全部同じ大きさだと、何が大事か分かりません。</p>
+          </div>
+        </div>
+        <div class="card tip">
+          <span class="tip__no">2</span>
+          <div>
+            <h3 class="card__ttl">色を増やしすぎない</h3>
+            <p class="card__txt">基本の色＋差し色の2〜3色で十分まとまります。</p>
+          </div>
+        </div>
+        <div class="card tip">
+          <span class="tip__no">3</span>
+          <div>
+            <h3 class="card__ttl">フォントを増やしすぎない</h3>
+            <p class="card__txt">見出しと本文の2種類まで。それ以上は散らかって見えます。</p>
+          </div>
+        </div>
+        <div class="card tip">
+          <span class="tip__no">4</span>
+          <div>
+            <h3 class="card__ttl">余白を怖がらない</h3>
+            <p class="card__txt">空いている場所は「無駄」ではなく、読みやすさそのものです。</p>
+          </div>
+        </div>
+        <div class="card tip">
+          <span class="tip__no">5</span>
+          <div>
+            <h3 class="card__ttl">全部読ませようとしない</h3>
+            <p class="card__txt">詳しくはQRやホームページへ。紙は「入口」で構いません。</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="askBox askBox--soft" style="margin-top:48px;">5つを意識すると…</p>
+
+      <div style="margin-top:28px;">
+        <p class="figLabel">After</p>
+        <div class="media" data-img="images/after.jpg" data-alt="5つのポイントを意識して整えた一例"
+             style="--ar:1055/1491;max-width:380px;">
+          <span class="media__label">画像準備中</span>
+          <span class="media__path">images/after.jpg</span>
+        </div>
+      </div>
+
+      <p class="note">
+        <strong>正解ではありません。</strong>5つのポイントを使った一例です。<br>
+        さきほど触った「Ebino Walking」で、できそうなものを1つだけ試してみましょう。全部を直す必要はありません。
+      </p>
+    </section>
+
+<!-- ========================================================
+         WHAT'S NEW
+         ======================================================== -->
+    <section class="sec sec--alt" id="whatsnew">
+      <span class="sec__label">WHAT'S NEW</span>
+      <h2 class="sec__title">2026年の Canva アップデート</h2>
+      <p class="sec__lead">
+        <span class="badge badge--try">体験</span> は今日実際に触ってみるもの、
+        <span class="badge badge--see">紹介</span> は見ていただくだけのものです。
+        くわしい説明は講師が行いますので、ここでは名前だけ覚えてください。
+      </p>
+
+      <div class="grid grid--3">
+
+        <div class="card card--feature">
+          <span class="badge badge--try">体験</span>
+          <h3 class="card__ttl">Magic Layers</h3>
+          <p class="card__txt">
+            重なった要素をレイヤーとして整理できる機能です。
+            「後ろにある文字が選べない」という、いちばん多いつまずきが解消します。
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--try">体験</span>
+          <h3 class="card__ttl">背景除去</h3>
+          <p class="card__txt">写真の背景をクリック1つで消せます。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--try">体験</span>
+          <h3 class="card__ttl">画像編集</h3>
+          <p class="card__txt">明るさ・色味の調整、トリミングなど。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--see">紹介</span>
+          <h3 class="card__ttl">Canva AI</h3>
+          <p class="card__txt">作りたいものを言葉で伝えて、たたき台を作ってもらう機能です。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--see">紹介</span>
+          <h3 class="card__ttl">画像生成</h3>
+          <p class="card__txt">言葉から画像を作ります。使いどころに注意が必要です。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--see">紹介</span>
+          <h3 class="card__ttl">Image to Video</h3>
+          <p class="card__txt">1枚の写真から短い動画を作ります。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--see">紹介</span>
+          <h3 class="card__ttl">動画・字幕・音声</h3>
+          <p class="card__txt">SNS向けの短い動画に字幕やナレーションを付けられます。</p>
+        </div>
+
+        <div class="card">
+          <span class="badge badge--see">紹介</span>
+          <h3 class="card__ttl">Webサイト作成</h3>
+          <p class="card__txt">チラシと同じ操作で、簡単なページを公開できます。</p>
+        </div>
+
+      </div>
+
+      <p class="note note--warn">
+        ご利用のアカウント・プラン・提供状況によって、使える機能と使えない機能があります。
+        当日ご覧いただく内容は変わる場合があります。
+      </p>
+    </section>
+
+<!-- ========================================================
+         写真1枚から
+         ======================================================== -->
+    <section class="sec" id="photo">
+      <span class="sec__label">PHOTO</span>
+      <h2 class="sec__title">写真1枚から、できること</h2>
+      <p class="sec__lead">
+        特別な写真は必要ありません。業務で撮った1枚が、そのまま広報物になります。<br>
+        下の写真は、実際にえびので撮ったものです。特別な撮影をした写真ではありません。
+      </p>
+
+      <ul class="flow">
+        <li>写真</li>
+        <li>トリミング</li>
+        <li>明るさ調整</li>
+        <li>文字・図形を追加</li>
+        <li>広報画像</li>
+      </ul>
+
+      <div class="grid grid--2" style="margin-bottom:18px;">
+        <div>
+          <p class="figLabel">元の写真</p>
+          <div class="media" data-img="images/photo-before.jpg" data-alt="えびの市内で撮影した酒蔵の写真"
+               style="--ar:4/3;">
+            <span class="media__label">画像準備中</span>
+            <span class="media__path">images/photo-before.jpg</span>
+          </div>
+        </div>
+        <div>
+          <p class="figLabel">完成イメージ</p>
+          <div class="media" data-img="images/photo-after.jpg" data-alt="広報素材として活用した場合の完成イメージ"
+               style="--ar:4/3;">
+            <span class="media__label">画像準備中</span>
+            <span class="media__path">images/photo-after.jpg</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        Afterは<strong>完成イメージ</strong>です。Canvaでは、トリミング・画像調整・文字や図形の追加などを
+        組み合わせて、このような広報素材を作ることができます。
+      </p>
+
+      <h3 class="card__ttl" style="margin:34px 0 14px;font-size:1.375rem;">
+        この1枚を、Canvaで広報素材にしてみる
+      </h3>
+
+      <div class="grid grid--3">
+        <div class="card step">
+          <span class="step__no">STEP 1</span>
+          <h3 class="step__ttl">写真をトリミングする</h3>
+          <p class="card__txt">伝えたい部分が目立つように、不要な部分をカットします。</p>
+        </div>
+        <div class="card step">
+          <span class="step__no">STEP 2</span>
+          <h3 class="step__ttl">写真を少し明るくする</h3>
+          <p class="card__txt">「画像を編集」から、明るさやコントラストを調整します。</p>
+        </div>
+        <div class="card step">
+          <span class="step__no">STEP 3</span>
+          <h3 class="step__ttl">文字が読める場所をつくる</h3>
+          <p class="card__txt">必要に応じて、半透明の図形などを重ねて文字を読みやすくします。</p>
+        </div>
+        <div class="card step">
+          <span class="step__no">STEP 4</span>
+          <h3 class="step__ttl">伝えたい言葉を大きく入れる</h3>
+          <p class="card__txt">すべてを説明するのではなく、まず目に入ってほしい言葉を大きくします。</p>
+        </div>
+        <div class="card step">
+          <span class="step__no">STEP 5</span>
+          <h3 class="step__ttl">必要な情報を追加する</h3>
+          <p class="card__txt">イベント名、場所、日時、問い合わせ先など、目的に応じて必要な情報だけ加えます。</p>
+        </div>
+      </div>
+
+      <p class="note">
+        <strong>全部やる必要はありません。</strong>
+        写真を整えて、文字を1つ加えるだけでも立派な広報素材になります。
+      </p>
+
+      <h3 class="card__ttl" style="margin:32px 0 12px;">さらにできること</h3>
+      <div class="grid grid--2" style="margin-bottom:28px;">
+        <div class="card">
+          <h3 class="card__ttl">背景除去</h3>
+          <p class="card__txt">人物や物だけを切り抜いて使うこともできます。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">動画化</h3>
+          <p class="card__txt">写真やデザインをもとに、動きのあるコンテンツへ発展させることもできます。</p>
+        </div>
+      </div>
+
+      <p style="font-weight:700;color:#14315c;">こんな業務に使えます</p>
+      <ul class="chips">
+        <li>観光</li>
+        <li>イベント</li>
+        <li>福祉</li>
+        <li>子育て</li>
+        <li>採用</li>
+        <li>防災</li>
+        <li>地域PR</li>
+      </ul>
+    </section>
+
+<!-- ========================================================
+         CANVA TIPS
+         ======================================================== -->
+    <section class="sec" id="canvatips">
+      <span class="sec__label">CANVA TIPS</span>
+      <h2 class="sec__title">明日から使える、小さな技</h2>
+      <p class="sec__lead">全部覚えなくて構いません。「こんなのがあったな」で十分です。</p>
+
+      <div class="grid grid--4">
+        <div class="card">
+          <h3 class="card__ttl">QRコード</h3>
+          <p class="card__txt">「アプリ」→「QRコード」。申込フォームやHPへの入口に。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">PDFで保存</h3>
+          <p class="card__txt">印刷するなら「PDF（印刷）」を選びます。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">PNG / JPEG</h3>
+          <p class="card__txt">メールやSNSに載せるならこちら。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">ページを複製</h3>
+          <p class="card__txt">同じデザインで別の回を作るときに便利です。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">整列</h3>
+          <p class="card__txt">位置をきれいに揃えるだけで、ぐっと読みやすくなります。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">グループ化</h3>
+          <p class="card__txt">まとめて動かしたい要素を1つにまとめます。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">ロック</h3>
+          <p class="card__txt">動かしたくない部分を固定します。誤操作を防げます。</p>
+        </div>
+        <div class="card">
+          <h3 class="card__ttl">共有リンク</h3>
+          <p class="card__txt">同じ課の人と、同じデザインを一緒に編集できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="pageNav" aria-label="ページの移動">
+      <a class="pageNav__link pageNav__prev" href="work1.html"><span class="pageNav__dir">← まえ</span><span class="pageNav__ttl">ワーク1 にもどる</span></a>
+      <a class="pageNav__link pageNav__next" href="work2.html"><span class="pageNav__dir">つぎ →</span><span class="pageNav__ttl">ワーク2　あなたの仕事の1枚</span></a>
+    </nav>
+  </main>
+</div>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p style="margin-bottom:4px;">
+      えびの市役所　広報スキルアップ「Canva」ワークショップセミナー　第1回 基礎編
+    </p>
+    <p style="margin-bottom:4px;">2026年9月18日（金）13:30 – 16:30／えびの市役所 会議室</p>
+    <p style="margin:0;"><b>講師：和田 倫周・中野 信盛</b></p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     スマホ用 下部固定バー
+     ============================================================ -->
+<div class="mobileBar">
+  <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
+    Canvaを開く
+    <span class="btn__state">準備中</span>
+  </a>
+  <button class="btn btn--outline" type="button" data-sheet-open>目次</button>
+</div>
+
+<!-- ============================================================
+     スマホ用 目次シート
+     ============================================================ -->
+<div class="sheet" id="navSheet" hidden>
+  <div class="sheet__panel" role="dialog" aria-modal="true" aria-label="目次">
+    <div class="sheet__head">
+      <h2>目次</h2>
+      <button class="sheet__close" type="button" id="sheetClose">閉じる</button>
+    </div>
+
+    <div class="media media--logo sheet__logo" data-img="images/canva-logo.png"
+         data-alt="Canva（キャンバ）" style="--ar:800/366;">
+      <span class="media__label">Canva</span>
+    </div>
+
+    <button class="fontToggle fontToggle--sheet" id="fontToggleSheet" type="button" aria-pressed="false">
+      <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
+    </button>
+
+    <ul class="sheet__list">
+      <li><a href="index.html#top">今日やること</a></li>
+      <li><a href="index.html#start">はじめに開くもの</a></li>
+      <li><a href="index.html#agenda">今日のロードマップ</a></li>
+      <li><a href="index.html#instructor">講師紹介</a></li>
+      <li><a href="index.html#book">講師の著作</a></li>
+      <li><a href="work1.html#work1">ワーク1 まず1枚</a></li>
+      <li><a href="#tips">伝わるデザイン</a></li>
+      <li><a href="#whatsnew">2026 新機能</a></li>
+      <li><a href="#photo">写真1枚から</a></li>
+      <li><a href="#canvatips">明日使える小技</a></li>
+      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+      <li><a href="share.html#share">作品を共有する</a></li>
+      <li><a href="share.html#feedback">アンケート</a></li>
+      <li><a href="share.html#help">困ったとき</a></li>
+      <li><a href="share.html#next">第2回 予告</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
