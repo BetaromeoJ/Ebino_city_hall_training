@@ -28,17 +28,20 @@ var CONFIG = {
   gemini     : "https://gemini.google.com/",  // ⑦ Geminiを開く
 
   /* ⑧ 第2回 演習用デザイン（Canvaテンプレート）
-     ★現在は第1回の「Ebino Walking」と同じデザインを指しています。
-       第2回用（観光PR）のテンプレートができたら、この1行を差し替えてください。
-       空欄 "" にすると、ボタンは自動で「準備中」になります。 */
+     第2回だけで使う枠です。デザインを差し替えるときは、この1行だけを書き換えてください。
+     （第1回の work1 とは別管理なので、ここを変えても第1回のページには影響しません）
+     空欄 "" にすると、ボタンは自動で「準備中」になります。 */
   canvaTemplate2 : "https://canva.link/hd944oyen6jc2ie",
 
-  shareForm2 : "",   // ⑨ 第2回 成果共有フォーム（★未設定：URLが決まったらここへ貼り付け）
+  /* ⑨ 第2回 研修アンケート
+     第1回と同じフォームをそのまま使います（上の survey と同じURL）。
+     第2回用に複製したフォームへ切り替える場合は、この1行を差し替えてください。 */
+  survey2    : "https://docs.google.com/forms/d/e/1FAIpQLSchfKUDeaERQi0vHxrsC7Pmlmemo-pCD_i-w52P7vCPs7us4A/viewform"
 
-  /* ⑩ 第2回 研修アンケート（★未設定）
-     第1回と同じ質問を使います。第1回のフォームをそのまま使う場合は、
-     上の survey と同じURLを貼り付けてください。複製して使う場合は複製側のURLを。 */
-  survey2    : ""
+  /* 第2回の成果共有は、席を立っておたがいの画面を見る形式にしたため、
+     提出フォーム（旧 shareForm2）は使用しません。
+     フォーム提出に戻す場合は、ここにキーを追加し、
+     g-share.html のSTEP 2へ data-link="shareForm2" のボタンを置いてください。 */
 };
 
 /* リンク一覧に表示する名称（CONFIGのキーと対応） */
@@ -51,13 +54,12 @@ var LINK_LABELS = {
   book       : "講師の著作（出版社サイト）",
   gemini     : "Gemini",
   canvaTemplate2 : "演習用デザイン（第2回）",
-  shareForm2 : "成果共有フォーム（第2回）",
-  survey2    : "研修アンケート（第2回）"
+  survey2    : "研修アンケート（第1回と共通）"
 };
 
 /* 各回の「困ったとき」リンク一覧に並べる順番 */
 var LINK_ORDER_1 = ["canvaClass", "canvaHome", "work1", "survey", "shareForm", "book"];
-var LINK_ORDER_2 = ["gemini", "canvaHome", "canvaTemplate2", "shareForm2", "survey2"];
+var LINK_ORDER_2 = ["gemini", "canvaHome", "canvaTemplate2", "survey2"];
 
 /* ==========================================================================
    これより下は、通常は編集不要です。
@@ -164,6 +166,22 @@ var LINK_ORDER_2 = ["gemini", "canvaHome", "canvaTemplate2", "shareForm2", "surv
       })(buttons[j]);
     }
     render();
+  }
+
+  /* 他ページから「第◯回を表示した状態でトップへ戻る」リンク
+     （例：第1回の「第2回 予告」にある［第2回のページを開く］） */
+  function initCourseLinks() {
+    var nodes = document.querySelectorAll("[data-course-set]");
+    for (var i = 0; i < nodes.length; i++) {
+      (function (el) {
+        el.addEventListener("click", function () {
+          var v = el.getAttribute("data-course-set");
+          if (v === "1" || v === "2") {
+            try { localStorage.setItem("ebino-course", v); } catch (e) {}
+          }
+        });
+      })(nodes[i]);
+    }
   }
 
   /* ------------------------------------------------------------------
@@ -398,6 +416,7 @@ var LINK_ORDER_2 = ["gemini", "canvaHome", "canvaTemplate2", "shareForm2", "surv
     applyLinks();
     buildLinkTables();
     initCourseSwitch();
+    initCourseLinks();
     initCopy();
     loadImages();
     initScrollSpy();

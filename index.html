@@ -101,11 +101,12 @@
       <ul class="sidebar__list" data-course-only="2">
         <li><a href="#g-start">はじめに（START）</a></li>
         <li><a href="g-gemini.html#g-gemini">Geminiと話す</a></li>
-        <li><a href="g-work1.html#g-work1">ワーク1 広報企画</a></li>
+        <li><a href="g-work1.html#g-work1">ワーク1 観光PRを考える</a></li>
         <li><a href="g-work2.html#g-work2">ワーク2 伝わる言葉</a></li>
         <li><a href="g-canva.html#g-canva">Canvaで形にする</a></li>
         <li><a href="g-work3.html#g-work3">ワーク3 仕事の1枚</a></li>
         <li><a href="g-share.html#g-share">作品を共有する</a></li>
+        <li><a href="g-share.html#g-help">困ったとき</a></li>
       </ul>
     </div>
   </nav>
@@ -455,17 +456,17 @@
       <ol class="agenda">
         <li>
           <span class="agenda__no">01</span>
-          <span class="agenda__ttl">START　ふりかえりとGeminiの準備</span>
+          <span class="agenda__ttl">はじめに　ふりかえりと準備</span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
         <li>
           <span class="agenda__no">02</span>
-          <span class="agenda__ttl"><a href="g-gemini.html#g-gemini">Gemini　AIに相談してみる</a></span>
+          <span class="agenda__ttl"><a href="g-gemini.html#g-gemini">Geminiと話す</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
         <li>
           <span class="agenda__no">03</span>
-          <span class="agenda__ttl"><a href="g-work1.html#g-work1">ワーク1　えびの市の観光PRを考える</a></span>
+          <span class="agenda__ttl"><a href="g-work1.html#g-work1">ワーク1　観光PRを考える</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
         <li>
@@ -480,17 +481,17 @@
         </li>
         <li>
           <span class="agenda__no">05</span>
-          <span class="agenda__ttl"><a href="g-canva.html#g-canva">Canva　GeminiからCanvaへ</a></span>
-          <span class="agenda__mode mode--watch">見る</span>
+          <span class="agenda__ttl"><a href="g-canva.html#g-canva">Canvaで形にする</a></span>
+          <span class="agenda__mode mode--touch">触る</span>
         </li>
         <li>
           <span class="agenda__no">06</span>
-          <span class="agenda__ttl"><a href="g-work3.html#g-work3">ワーク3　自分の仕事の1枚をつくる</a></span>
+          <span class="agenda__ttl"><a href="g-work3.html#g-work3">ワーク3　自分の仕事の1枚</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
         <li>
           <span class="agenda__no">07</span>
-          <span class="agenda__ttl"><a href="g-share.html#g-share">SHARE　作品の共有とふりかえり</a></span>
+          <span class="agenda__ttl"><a href="g-share.html#g-share">作品を共有する　おたがいの画面を見る</a></span>
           <span class="agenda__mode mode--touch">触る</span>
         </li>
       </ol>
@@ -516,18 +517,34 @@
     </section>
 
 <!-- ========================================================
-         Geminiの動作確認
+         今日使うものを開く（研修用Canvaクラス／Gemini）
          ======================================================== -->
     <section class="sec" id="g-check" data-nav="g-start">
       <span class="sec__label">CHECK</span>
-      <h2 class="sec__title">Geminiが使えるか、確かめましょう</h2>
+      <h2 class="sec__title">今日使うものを開きましょう</h2>
       <p class="sec__lead">
-        本題に入る前に、Geminiが開けるかどうかだけ確認します。ここでつまずいても問題ありません。
+        本題に入る前に、CanvaとGeminiが開けるかどうかだけ確認します。ここでつまずいても問題ありません。
       </p>
 
       <div class="grid grid--2">
         <div class="card step">
-          <span class="step__no">今すること</span>
+          <span class="step__no">STEP 1</span>
+          <h3 class="step__ttl">研修用Canvaクラスに参加する</h3>
+          <p class="card__txt">
+            講師が用意した研修用Canvaクラスに、生徒として参加します。
+          </p>
+          <a class="btn btn--primary btn--lg is-pending" data-link="canvaClass" aria-disabled="true"
+             style="margin-top:14px;">
+            招待リンクを開く
+            <span class="btn__state">準備中</span>
+          </a>
+          <p class="btnNote">
+            第1回と同じ招待リンクです。すでに参加している方は、そのまま次へ進んでください。
+          </p>
+        </div>
+
+        <div class="card step">
+          <span class="step__no">STEP 2</span>
           <h3 class="step__ttl">Geminiを開いて、1回だけ質問する</h3>
           <ol>
             <li>下の「Geminiを開く」ボタンを押す。</li>
@@ -542,10 +559,11 @@
             <span class="btn__state">準備中</span>
           </a>
         </div>
+      </div>
 
-        <div class="card step step--calm">
-          <span class="step__no">コピー</span>
-          <h3 class="step__ttl">動作確認用のプロンプト</h3>
+      <div class="card step step--calm" style="margin-top:18px;">
+        <span class="step__no">コピー</span>
+        <h3 class="step__ttl">動作確認用のプロンプト</h3>
       <div class="prompt">
         <div class="prompt__head">
           <span class="prompt__label">動作確認用</span>
@@ -554,22 +572,22 @@
         <pre class="prompt__text" id="p-check">えびの市の魅力を3つ教えてください。</pre>
         <p class="prompt__msg" role="status" aria-live="polite"></p>
       </div>
-          <p class="btnNote">
-            うまく送信できたら確認は完了です。回答の内容は気にしなくて大丈夫です。
-          </p>
-        </div>
+        <p class="btnNote">
+          うまく送信できたら確認は完了です。回答の内容は気にしなくて大丈夫です。
+        </p>
       </div>
 
       <p class="note note--warn">
         <strong>うまくいかないときは、そのまま手を止めてください。</strong><br>
         市役所のPCでGeminiが動くことは確認していますが、アカウントによって利用できない場合があります。
         Geminiを開けない、ログインできない、画面が講師と異なる——そんなときは、講師またはサポート担当にお知らせください。
+        <a href="g-share.html#g-help">「困ったとき」</a>にも、よくあるつまずきをまとめています。
       </p>
     </section>
 
       <nav class="pageNav" aria-label="ページの移動">
         <span></span>
-        <a class="pageNav__link pageNav__next" href="g-gemini.html"><span class="pageNav__dir">つぎ →</span><span class="pageNav__ttl">Geminiは、考えることを手伝ってくれる相手</span></a>
+        <a class="pageNav__link pageNav__next" href="g-gemini.html"><span class="pageNav__dir">つぎ →</span><span class="pageNav__ttl">Geminiと話す</span></a>
       </nav>
     </div>
 
@@ -658,11 +676,12 @@
       <ul class="sheet__list" data-course-only="2">
         <li><a href="#g-start">はじめに（START）</a></li>
         <li><a href="g-gemini.html#g-gemini">Geminiと話す</a></li>
-        <li><a href="g-work1.html#g-work1">ワーク1 広報企画</a></li>
+        <li><a href="g-work1.html#g-work1">ワーク1 観光PRを考える</a></li>
         <li><a href="g-work2.html#g-work2">ワーク2 伝わる言葉</a></li>
         <li><a href="g-canva.html#g-canva">Canvaで形にする</a></li>
         <li><a href="g-work3.html#g-work3">ワーク3 仕事の1枚</a></li>
         <li><a href="g-share.html#g-share">作品を共有する</a></li>
+        <li><a href="g-share.html#g-help">困ったとき</a></li>
       </ul>
   </div>
 </div>
