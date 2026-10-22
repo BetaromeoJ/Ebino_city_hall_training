@@ -878,3 +878,211 @@ main { min-width: 0; padding-bottom: 80px; }
   .layout { display: block; padding: 0; }
   .sec { break-inside: avoid; page-break-inside: avoid; }
 }
+
+/* ==========================================================================
+   16. 第1回／第2回 統合ポータル（追加分）
+   - 既存の配色・角丸・文字サイズをそのまま使っています
+   - JavaScriptが無効な環境では両方の回が表示されます（本文は全て読めます）
+   ========================================================================== */
+
+/* -- 表示中の回だけを見せる ------------------------------------------------ */
+html[data-course="1"] [data-course-only="2"],
+html[data-course="2"] [data-course-only="1"] { display: none !important; }
+
+/* -- ヒーロー（共通部分＋切り替え） --------------------------------------- */
+.hero__sub {
+  font-size: 1.1875rem; font-weight: 700; color: var(--cyan-dark);
+  margin: 6px 0 0;
+}
+.hero__course {
+  font-size: 1.375rem; color: var(--navy-soft);
+  margin: 0 0 2px; line-height: 1.4;
+}
+
+.courseSwitch {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin: 16px 0 18px;
+}
+.courseSwitch__btn {
+  flex: 1 1 200px; max-width: 290px;
+  display: flex; flex-direction: column; gap: 2px;
+  min-height: 62px; padding: 9px 18px;
+  background: #fff; border: 2px solid var(--line-strong);
+  border-radius: var(--radius); cursor: pointer;
+  font-family: inherit; text-align: left;
+  transition: background .15s, border-color .15s;
+}
+.courseSwitch__btn:hover { border-color: var(--cyan); background: var(--cyan-pale); }
+.courseSwitch__no {
+  font-size: 0.875rem; font-weight: 700; letter-spacing: .06em; color: var(--text-sub);
+}
+.courseSwitch__name {
+  font-size: 1.125rem; font-weight: 700; color: var(--navy); line-height: 1.35;
+}
+.courseSwitch__state {
+  font-size: 0.8125rem; font-weight: 700; color: var(--text-sub);
+}
+/* 選択中：色だけでなく「✓ 表示中」の文字でも区別します */
+.courseSwitch__btn[aria-pressed="true"] {
+  background: var(--cyan); border-color: var(--cyan-dark);
+}
+.courseSwitch__btn[aria-pressed="true"]:hover { background: var(--cyan-dark); }
+.courseSwitch__btn[aria-pressed="true"] .courseSwitch__no { color: #d6f1f4; }
+.courseSwitch__btn[aria-pressed="true"] .courseSwitch__name { color: #fff; }
+.courseSwitch__btn[aria-pressed="true"] .courseSwitch__state { color: #fff; }
+.courseSwitch__btn[aria-pressed="true"] .courseSwitch__state::before { content: "✓ "; }
+
+/* -- 見出し・メッセージ ---------------------------------------------------- */
+.subHead {
+  font-size: 1.375rem; color: var(--navy);
+  margin: 34px 0 12px; padding-left: 14px;
+  border-left: 5px solid var(--cyan);
+}
+.bigMsg {
+  margin: 26px 0 0; padding: 18px 24px;
+  background: var(--navy); color: #fff; border-radius: var(--radius-lg);
+  font-size: 1.1875rem; font-weight: 700; line-height: 1.65;
+}
+.warnList {
+  margin: 0; padding: 18px 22px 18px 42px;
+  background: var(--orange-pale); border-left: 5px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.warnList li { margin-bottom: 6px; font-weight: 700; color: #6a3b12; line-height: 1.6; }
+.warnList li:last-child { margin-bottom: 0; }
+
+/* -- Geminiの相談のコツ ---------------------------------------------------- */
+.tipCard { position: relative; padding-top: 30px; }
+.tipCard__no {
+  position: absolute; top: -14px; left: 18px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--cyan); color: #fff; font-weight: 700; font-size: 1.0625rem;
+}
+.tipCard__ex {
+  margin: 10px 0 0; padding: 12px 14px;
+  background: var(--cyan-pale); border-radius: 10px;
+  font-size: 1.0625rem; font-weight: 700; color: var(--navy); line-height: 1.6;
+}
+
+/* -- プロンプト（コピー用） ------------------------------------------------ */
+.prompt {
+  background: #fff; border: 2px solid var(--line-strong);
+  border-radius: var(--radius); padding: 14px 16px; margin: 14px 0 0;
+}
+.prompt--soft { background: var(--cyan-pale); border-color: var(--cyan); }
+.prompt--mini { border-width: 1px; padding: 10px 12px; margin-top: 12px; }
+
+.prompt__head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 10px 12px; margin-bottom: 10px;
+}
+.prompt__label {
+  font-size: 0.875rem; font-weight: 700; letter-spacing: .08em; color: var(--text-sub);
+}
+.prompt__copy { min-height: 46px; padding: 0 20px; }
+.prompt__text {
+  margin: 0; padding: 14px 16px;
+  background: var(--bg-alt); border-radius: 10px;
+  font-family: inherit; font-size: 1.0625rem; line-height: 1.75; color: var(--text);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.prompt--mini .prompt__text { font-size: 1rem; padding: 10px 12px; }
+.prompt__msg {
+  min-height: 1.5em; margin: 8px 0 0;
+  font-size: 0.9375rem; font-weight: 700; line-height: 1.5;
+}
+.prompt__msg.is-ok { color: var(--cyan-dark); }
+.prompt__msg.is-error { color: #9c3118; }
+
+/* -- ワーク3：テーマカード ------------------------------------------------- */
+.themeGrid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+}
+.themeCard {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px;
+}
+.themeCard__no {
+  font-size: 0.875rem; font-weight: 700; letter-spacing: .08em; color: var(--cyan-dark);
+}
+.themeCard__ttl { font-size: 1.125rem; color: var(--navy); margin: 4px 0 6px; line-height: 1.35; }
+.themeCard__desc {
+  font-size: 0.9688rem; line-height: 1.6; color: var(--text-sub);
+  margin: 0 0 12px; flex: 1;
+}
+.themeCard .btn { width: 100%; min-height: 48px; font-size: 1.0625rem; padding: 0 10px; }
+.themeCard .prompt__msg { font-size: 0.875rem; min-height: 1.4em; }
+.themeCard--free { border: 2px solid var(--cyan); background: var(--cyan-pale); }
+.themeCard__label {
+  display: block; font-size: 0.875rem; font-weight: 700;
+  color: var(--text-sub); margin-bottom: 4px;
+}
+.themeCard__input {
+  width: 100%; min-height: 46px; margin-bottom: 10px;
+  padding: 8px 12px; font-family: inherit; font-size: 1.0625rem;
+  border: 2px solid var(--line-strong); border-radius: 10px; background: #fff;
+}
+.themeCard__input:focus-visible { outline: 3px solid var(--cyan-dark); outline-offset: 1px; }
+
+/* -- スマホ下部バー（第2回は3つ） ------------------------------------------ */
+.mobileBar--three .btn { font-size: 1rem; padding: 0 6px; }
+
+/* -- レスポンシブ ---------------------------------------------------------- */
+@media (min-width: 901px) and (max-height: 1000px) {
+  .hero__sub { font-size: 1.0625rem; margin-top: 2px; }
+  .hero__course { font-size: 1.1875rem; }
+  .courseSwitch { gap: 10px; margin: 10px 0 10px; }
+  .courseSwitch__btn { min-height: 54px; padding: 6px 16px; }
+}
+@media (min-width: 901px) and (max-height: 900px) {
+  .hero__sub { font-size: 1rem; margin-top: 0; }
+  .courseSwitch { margin: 8px 0 8px; }
+  .courseSwitch__btn { min-height: 48px; padding: 5px 14px; }
+  .courseSwitch__name { font-size: 1.0625rem; }
+  .courseSwitch__state { font-size: 0.75rem; }
+  .hero__course { font-size: 1.0625rem; margin-bottom: 0; }
+}
+@media (min-width: 901px) and (max-height: 810px) {
+  .hero__sub { font-size: 0.9375rem; }
+  .courseSwitch { gap: 8px; margin: 6px 0 6px; }
+  .courseSwitch__btn { min-height: 44px; padding: 4px 12px; }
+  .courseSwitch__no { font-size: 0.8125rem; }
+  .courseSwitch__name { font-size: 1rem; }
+}
+
+@media (max-width: 1240px) {
+  .themeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .hero__sub { font-size: 1.0625rem; }
+  .hero__course { font-size: 1.25rem; }
+  .courseSwitch__btn { flex: 1 1 100%; max-width: 100%; }
+  .themeGrid { grid-template-columns: minmax(0, 1fr); }
+  .subHead { font-size: 1.25rem; }
+  .bigMsg { font-size: 1.0938rem; padding: 16px 18px; }
+  .prompt__head { flex-direction: column; align-items: stretch; }
+  .prompt__copy { width: 100%; }
+}
+
+@media print {
+  .courseSwitch, .prompt__copy, .prompt__msg { display: none !important; }
+  .prompt { border: 1px solid #999; }
+  .prompt__text { background: none; }
+}
+
+/* 1080pクラスのモニター（縦1001〜1200px）：
+   切り替えボタンが増えた分だけヒーローを詰め、第1回の「START HERE」を
+   第1画面に収めます。これより縦が短い画面には、上の各段階が適用されます。 */
+@media (min-width: 901px) and (min-height: 1001px) and (max-height: 1200px) {
+  .hero { padding: 10px 0 2px; }
+  .hero__sub { font-size: 1.0625rem; margin-top: 2px; }
+  .courseSwitch { margin: 8px 0 8px; }
+  .courseSwitch__btn { min-height: 54px; padding: 6px 16px; }
+  .today { margin-top: 8px; }
+  #start { padding-top: 6px; }
+  #start .sec__lead { margin-bottom: 14px; }
+  #g-start { padding-top: 18px; }
+}

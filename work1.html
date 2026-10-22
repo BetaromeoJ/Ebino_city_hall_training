@@ -4,19 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ワーク1 まず1枚、触ってみよう｜えびの市役所 Canvaワークショップ 第1回 基礎編</title>
-<meta name="description" content="えびの市役所 広報スキルアップ「Canva」ワークショップセミナー 第1回 基礎編（2026年9月18日）の受講者用ポータルです。研修中に必要なリンク・手順・資料をここにまとめています。">
+<meta name="description" content="えびの市役所 Canvaワークショップ 第1回 基礎編 ワーク1の手順です。">
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <script>
-/* 前回「文字を大きく」を選んでいた場合、表示前に反映します（ちらつき防止） */
-try {
-  if (localStorage.getItem("ebino-font") === "lg") {
-    document.documentElement.setAttribute("data-font", "lg");
-  }
-} catch (e) {}
+/* 表示前に「文字サイズ」と「研修回」を反映します（ちらつき防止）。
+   研修回：この画面で固定する場合は data-course を直接指定しています。 */
+(function () {
+  var d = document.documentElement;
+  try {
+    if (localStorage.getItem("ebino-font") === "lg") { d.setAttribute("data-font", "lg"); }
+  } catch (e) {}
+  /* この教材ページは第1回です。表示中の回として記憶します。 */
+  d.setAttribute("data-course", "1");
+  try { localStorage.setItem("ebino-course", "1"); } catch (e) {}
+})();
 </script>
 
 <a class="skip-link" href="#mainStart">本文へスキップ</a>
@@ -34,16 +39,16 @@ try {
     <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
   </button>
 
-  <div class="topbar__actions">
-    <a class="btn btn--navy is-pending" data-link="canvaClass" aria-disabled="true">
-      研修用Canvaクラスに参加
-      <span class="btn__state">準備中</span>
-    </a>
-    <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
-      Canvaを開く
-      <span class="btn__state">準備中</span>
-    </a>
-  </div>
+    <div class="topbar__actions">
+      <a class="btn btn--navy is-pending" data-link="canvaClass" aria-disabled="true">
+        研修用Canvaクラスに参加
+        <span class="btn__state">準備中</span>
+      </a>
+      <a class="btn btn--primary is-pending" data-link="canvaHome" aria-disabled="true">
+        Canvaを開く
+        <span class="btn__state">準備中</span>
+      </a>
+    </div>
 
   <button class="navToggle" type="button" data-sheet-open>目次</button>
 </header>
@@ -63,23 +68,23 @@ try {
 
     <div class="sidebar__scroll">
     <p class="sidebar__head">今日のながれ</p>
-    <ul class="sidebar__list">
-      <li><a href="index.html#top">今日やること</a></li>
-      <li><a href="index.html#start">はじめに開くもの</a></li>
-      <li><a href="index.html#agenda">今日のロードマップ</a></li>
-      <li><a href="index.html#instructor">講師紹介</a></li>
-      <li><a href="index.html#book">講師の著作</a></li>
-      <li><a href="#work1">ワーク1 まず1枚</a></li>
-      <li><a href="learn.html#tips">伝わるデザイン</a></li>
-      <li><a href="learn.html#whatsnew">2026 新機能</a></li>
-      <li><a href="learn.html#photo">写真1枚から</a></li>
-      <li><a href="learn.html#canvatips">明日使える小技</a></li>
-      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
-      <li><a href="share.html#share">作品を共有する</a></li>
-      <li><a href="share.html#feedback">アンケート</a></li>
-      <li><a href="share.html#help">困ったとき</a></li>
-      <li><a href="share.html#next">第2回 予告</a></li>
-    </ul>
+      <ul class="sidebar__list">
+        <li><a href="index.html#top">今日やること</a></li>
+        <li><a href="index.html#start">はじめに開くもの</a></li>
+        <li><a href="index.html#agenda">今日のロードマップ</a></li>
+        <li><a href="index.html#instructor">講師紹介</a></li>
+        <li><a href="index.html#book">講師の著作</a></li>
+        <li><a href="#work1">ワーク1 まず1枚</a></li>
+        <li><a href="learn.html#tips">伝わるデザイン</a></li>
+        <li><a href="learn.html#whatsnew">2026 新機能</a></li>
+        <li><a href="learn.html#photo">写真1枚から</a></li>
+        <li><a href="learn.html#canvatips">明日使える小技</a></li>
+        <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+        <li><a href="share.html#share">作品を共有する</a></li>
+        <li><a href="share.html#feedback">アンケート</a></li>
+        <li><a href="share.html#help">困ったとき</a></li>
+        <li><a href="share.html#next">第2回 予告</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -220,6 +225,7 @@ try {
       <a class="pageNav__link pageNav__prev" href="index.html"><span class="pageNav__dir">← まえ</span><span class="pageNav__ttl">START にもどる</span></a>
       <a class="pageNav__link pageNav__next" href="learn.html"><span class="pageNav__dir">つぎ →</span><span class="pageNav__ttl">伝わるデザイン</span></a>
     </nav>
+
   </main>
 </div>
 
@@ -266,23 +272,23 @@ try {
       <span aria-hidden="true">A</span><span class="fontToggle__label">文字を大きく</span>
     </button>
 
-    <ul class="sheet__list">
-      <li><a href="index.html#top">今日やること</a></li>
-      <li><a href="index.html#start">はじめに開くもの</a></li>
-      <li><a href="index.html#agenda">今日のロードマップ</a></li>
-      <li><a href="index.html#instructor">講師紹介</a></li>
-      <li><a href="index.html#book">講師の著作</a></li>
-      <li><a href="#work1">ワーク1 まず1枚</a></li>
-      <li><a href="learn.html#tips">伝わるデザイン</a></li>
-      <li><a href="learn.html#whatsnew">2026 新機能</a></li>
-      <li><a href="learn.html#photo">写真1枚から</a></li>
-      <li><a href="learn.html#canvatips">明日使える小技</a></li>
-      <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
-      <li><a href="share.html#share">作品を共有する</a></li>
-      <li><a href="share.html#feedback">アンケート</a></li>
-      <li><a href="share.html#help">困ったとき</a></li>
-      <li><a href="share.html#next">第2回 予告</a></li>
-    </ul>
+      <ul class="sheet__list">
+        <li><a href="index.html#top">今日やること</a></li>
+        <li><a href="index.html#start">はじめに開くもの</a></li>
+        <li><a href="index.html#agenda">今日のロードマップ</a></li>
+        <li><a href="index.html#instructor">講師紹介</a></li>
+        <li><a href="index.html#book">講師の著作</a></li>
+        <li><a href="#work1">ワーク1 まず1枚</a></li>
+        <li><a href="learn.html#tips">伝わるデザイン</a></li>
+        <li><a href="learn.html#whatsnew">2026 新機能</a></li>
+        <li><a href="learn.html#photo">写真1枚から</a></li>
+        <li><a href="learn.html#canvatips">明日使える小技</a></li>
+        <li><a href="work2.html#work2">ワーク2 仕事の1枚</a></li>
+        <li><a href="share.html#share">作品を共有する</a></li>
+        <li><a href="share.html#feedback">アンケート</a></li>
+        <li><a href="share.html#help">困ったとき</a></li>
+        <li><a href="share.html#next">第2回 予告</a></li>
+      </ul>
   </div>
 </div>
 
