@@ -1086,3 +1086,22 @@ html[data-course="2"] [data-course-only="1"] { display: none !important; }
   #start .sec__lead { margin-bottom: 14px; }
   #g-start { padding-top: 18px; }
 }
+
+/* 研修サンプル枠の中身（ワーク1の演習設定） */
+.sampleBox__ttl {
+  font-size: 1.25rem; color: var(--navy); margin: 0 0 10px; line-height: 1.4;
+}
+.sampleBox__txt {
+  margin: 0 0 10px; font-size: 1.0625rem; line-height: 1.75; color: var(--text);
+}
+.sampleBox__note {
+  margin: 0; font-size: 0.9375rem; line-height: 1.6; color: var(--text-sub);
+}
+
+/* 第2回ページのボタン・入力欄の下に添える小さな補足。
+   （START HERE 用の .startCard__help は縦の短い画面で非表示になるため、
+     セクション外ではこちらを使います） */
+.btnNote {
+  font-size: 0.9375rem; line-height: 1.55; color: var(--text-sub);
+  margin: 8px 0 0;
+}

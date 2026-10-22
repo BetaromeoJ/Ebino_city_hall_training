@@ -26,8 +26,19 @@ var CONFIG = {
 
   /* ---- 第2回（2026.10.23） ------------------------------------------- */
   gemini     : "https://gemini.google.com/",  // ⑦ Geminiを開く
-  shareForm2 : "",   // ⑧ 第2回 成果共有フォーム（★未設定：URLが決まったらここへ貼り付け）
-  survey2    : ""    // ⑨ 第2回 研修アンケート　（★未設定：URLが決まったらここへ貼り付け）
+
+  /* ⑧ 第2回 演習用デザイン（Canvaテンプレート）
+     ★現在は第1回の「Ebino Walking」と同じデザインを指しています。
+       第2回用（観光PR）のテンプレートができたら、この1行を差し替えてください。
+       空欄 "" にすると、ボタンは自動で「準備中」になります。 */
+  canvaTemplate2 : "https://canva.link/hd944oyen6jc2ie",
+
+  shareForm2 : "",   // ⑨ 第2回 成果共有フォーム（★未設定：URLが決まったらここへ貼り付け）
+
+  /* ⑩ 第2回 研修アンケート（★未設定）
+     第1回と同じ質問を使います。第1回のフォームをそのまま使う場合は、
+     上の survey と同じURLを貼り付けてください。複製して使う場合は複製側のURLを。 */
+  survey2    : ""
 };
 
 /* リンク一覧に表示する名称（CONFIGのキーと対応） */
@@ -39,13 +50,14 @@ var LINK_LABELS = {
   survey     : "研修アンケート",
   book       : "講師の著作（出版社サイト）",
   gemini     : "Gemini",
+  canvaTemplate2 : "演習用デザイン（第2回）",
   shareForm2 : "成果共有フォーム（第2回）",
   survey2    : "研修アンケート（第2回）"
 };
 
 /* 各回の「困ったとき」リンク一覧に並べる順番 */
 var LINK_ORDER_1 = ["canvaClass", "canvaHome", "work1", "survey", "shareForm", "book"];
-var LINK_ORDER_2 = ["gemini", "canvaHome", "work1", "shareForm2", "survey2"];
+var LINK_ORDER_2 = ["gemini", "canvaHome", "canvaTemplate2", "shareForm2", "survey2"];
 
 /* ==========================================================================
    これより下は、通常は編集不要です。
